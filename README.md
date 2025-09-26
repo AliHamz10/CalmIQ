@@ -1,1 +1,3 @@
 # CalmIQ
+
+Lightweight repo scaffold.
