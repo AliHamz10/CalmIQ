@@ -1,4 +1,42 @@
+# General
 .DS_Store
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Node
 node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.turbo/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
 venv/
+
+# Env
 .env
+.env.*
+*.env.local
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# OS
+Thumbs.db
+
+# Build outputs
+/dist/
+/build/
+/coverage/
+.pytest_cache/
+.cache/
