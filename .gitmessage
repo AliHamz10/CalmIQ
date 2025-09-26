@@ -1,0 +1,11 @@
+# Commit message template (Conventional Commits)
+# <type>(scope)!: <short summary>
+#
+# Types: feat, fix, chore, docs, style, refactor, perf, test, ci, build, revert
+# Examples:
+# feat(auth): add OAuth login flow
+# fix(api): handle null user id in serializer
+#
+# Body (why, not what)
+#
+# BREAKING CHANGE: describe here if any
