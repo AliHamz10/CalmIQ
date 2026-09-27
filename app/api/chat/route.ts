@@ -25,11 +25,12 @@ function buildSystemPrompt(canPhysio: boolean): string {
 
 function demoAdvice(userText: string): string {
   const t = userText.toLowerCase();
-  if (/ankle|sprain|twist/.test(t)) {
-    return "For a recent twist: relative rest, gentle elevation when you can, and avoid testing it with sharp pivots. If swelling, bruising, or weight-bearing pain is significant, get it checked in person.";
-  }
+  // Prefer the most specific ask when multiple keywords appear.
   if (/\bice\b|icing|cold pack/.test(t)) {
     return "Short icing sessions (about 10–15 minutes, cloth barrier) can help comfort early on; stop if skin gets too cold or numb. Pair with easy range-of-motion only if it stays comfortable.";
+  }
+  if (/ankle|sprain|twist/.test(t)) {
+    return "For a recent twist: relative rest, gentle elevation when you can, and avoid testing it with sharp pivots. If swelling, bruising, or weight-bearing pain is significant, get it checked in person.";
   }
   if (/knee|squat|click/.test(t)) {
     return "Knee clicks without sharp pain are often mechanical noise — reduce deep-squat volume for a few days, keep walks easy, and note swelling or giving-way (those deserve a clinician look).";
