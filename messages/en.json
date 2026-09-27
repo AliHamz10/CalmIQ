@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "brand": "CalmIq",
+    "tagline": "Calm guidance for body and mind"
+  },
+  "nav": {
+    "home": "Home",
+    "pricing": "Packages",
+    "about": "About",
+    "chat": "Chat",
+    "sessions": "Sessions",
+    "account": "Account",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "cta": "Start chat",
+    "sessionsLocked": "Sessions (Calm+)"
+  },
+  "home": {
+    "brand": "CalmIq",
+    "headline": "Move with clarity. Recover with calm.",
+    "support": "A wellness companion that listens, then guides you toward safer movement — and a physiotherapist when you need one.",
+    "ctaPrimary": "Start chatting",
+    "ctaSecondary": "See packages"
+  },
+  "pricing": {
+    "title": "Packages that match how you heal",
+    "subtitle": "Chat is available on every plan. Physiotherapist sessions unlock with Calm+.",
+    "freeName": "Free",
+    "freePrice": "$0",
+    "freeDesc": "Limited daily chat for gentle guidance and education.",
+    "freeFeature1": "Wellness chatbot (daily limit)",
+    "freeFeature2": "English & Urdu",
+    "freeFeature3": "No physiotherapist sessions",
+    "paidName": "Calm+",
+    "paidPrice": "$29",
+    "paidPeriod": "/month",
+    "paidDesc": "Full chat plus physiotherapist session requests.",
+    "paidFeature1": "Unlimited chatbot guidance",
+    "paidFeature2": "Physiotherapist session requests",
+    "paidFeature3": "Priority support cues in chat",
+    "ctaFree": "Continue free",
+    "ctaPaid": "Upgrade to Calm+",
+    "physioNote": "Physiotherapist sessions included on Calm+ only."
+  },
+  "about": {
+    "title": "Built for calm recovery",
+    "body": "CalmIq helps you understand everyday movement discomfort with clear, careful guidance. We are not a licensed clinic in the chat — when hands-on care matters, paid members can request a physiotherapist session.",
+    "disclaimer": "CalmIq does not diagnose or replace professional medical advice. Seek urgent care for severe or sudden symptoms."
+  },
+  "chat": {
+    "title": "CalmIq assistant",
+    "subtitle": "Ask about movement, recovery habits, and when to escalate.",
+    "placeholder": "Describe how you feel or what you need…",
+    "send": "Send",
+    "disclaimer": "Not a licensed clinician. For personalized care, book a physiotherapist if your plan includes sessions.",
+    "upgradeHint": "Upgrade to Calm+ to request physiotherapist sessions.",
+    "bookHint": "You can request a physiotherapist session from Sessions.",
+    "empty": "Say hello — how can CalmIq support you today?",
+    "loading": "Thinking…",
+    "error": "Something went wrong. Please try again.",
+    "signInRequired": "Sign in to use the chatbot.",
+    "demoMode": "Demo mode — replies are simulated without an AI key."
+  },
+  "sessions": {
+    "title": "Physiotherapist sessions",
+    "subtitle": "Request a session with a physiotherapist. Available on Calm+.",
+    "lockedTitle": "Sessions unlock with Calm+",
+    "lockedBody": "Free members can chat with CalmIq. Upgrade to request physiotherapist sessions.",
+    "upgradeCta": "View packages",
+    "formTitle": "Request a session",
+    "notesLabel": "What would you like help with?",
+    "notesPlaceholder": "e.g. shoulder stiffness after desk work…",
+    "submit": "Request session",
+    "success": "Request received. Our team will follow up.",
+    "listTitle": "Your requests",
+    "empty": "No session requests yet.",
+    "statusRequested": "Requested",
+    "statusScheduled": "Scheduled",
+    "statusCompleted": "Completed",
+    "statusCanceled": "Canceled",
+    "errorForbidden": "Physiotherapist sessions require an active Calm+ subscription.",
+    "errorGeneric": "Could not submit request. Try again."
+  },
+  "account": {
+    "title": "Account",
+    "plan": "Current plan",
+    "planFree": "Free",
+    "planPaid": "Calm+",
+    "manageBilling": "Manage billing",
+    "demoNotice": "Running in demo mode (no Supabase keys). Use the toggles below to simulate plans.",
+    "simulateFree": "Simulate Free",
+    "simulatePaid": "Simulate Calm+",
+    "signInPrompt": "Sign in to manage your plan and sessions.",
+    "email": "Email",
+    "locale": "Preferred language"
+  },
+  "login": {
+    "title": "Sign in to CalmIq",
+    "subtitle": "Use your email for a magic link, or try demo mode locally.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "submit": "Send magic link",
+    "sent": "Check your email for a sign-in link.",
+    "demoCta": "Continue in demo mode",
+    "error": "Could not start sign-in. Check configuration."
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "rights": "Calm guidance, carefully scoped."
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundBody": "That path does not exist.",
+    "backHome": "Back home"
+  },
+  "legal": {
+    "privacyTitle": "Privacy",
+    "privacyBody": "CalmIq stores account, subscription, and session-request data to deliver the product. Chat may be processed by our AI provider. Do not share sensitive medical identifiers you are not comfortable storing.",
+    "termsTitle": "Terms",
+    "termsBody": "CalmIq chat is educational wellness guidance, not diagnosis or emergency care. Physiotherapist sessions are fulfilled by humans after a paid request. Use of the service constitutes acceptance of these terms."
+  }
+}
