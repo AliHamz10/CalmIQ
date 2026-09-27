@@ -40,6 +40,7 @@ yarn-error.log*
 # playwright mcp local artifacts
 .playwright-mcp/
 verify-*.png
+audit-*.png
 media-*.png
 
 # typescript

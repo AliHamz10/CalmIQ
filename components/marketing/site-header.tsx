@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { LocaleSwitcher } from "@/components/ui/locale-switcher";
@@ -17,6 +18,34 @@ export function SiteHeader() {
   const t = useTranslations("nav");
   const tMeta = useTranslations("meta");
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [canPhysio, setCanPhysio] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/me")
+      .then((r) => r.json())
+      .then((data: { canAccessPhysio?: boolean }) => {
+        if (!cancelled) setCanPhysio(Boolean(data.canAccessPhysio));
+      })
+      .catch(() => {
+        if (!cancelled) setCanPhysio(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname]);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  function labelFor(key: (typeof links)[number]["key"]) {
+    if (key === "sessions" && canPhysio === false) {
+      return t("sessionsLocked");
+    }
+    return t(key);
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-surface/80 backdrop-blur-md">
@@ -46,7 +75,7 @@ export function SiteHeader() {
                     : "hover:text-text transition-colors"
                 }
               >
-                {t(item.key)}
+                {labelFor(item.key)}
               </Link>
             );
           })}
@@ -59,8 +88,50 @@ export function SiteHeader() {
           >
             {t("cta")}
           </Link>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-[var(--radius)] border border-border px-2.5 py-2 text-sm md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">Menu</span>
+            <span aria-hidden className="flex flex-col gap-1">
+              <span className="block h-0.5 w-4 bg-text" />
+              <span className="block h-0.5 w-4 bg-text" />
+              <span className="block h-0.5 w-4 bg-text" />
+            </span>
+          </button>
         </div>
       </div>
+      {open ? (
+        <nav
+          id="mobile-nav"
+          className="border-t border-border/70 bg-surface px-6 py-3 md:hidden"
+          aria-label="Mobile"
+        >
+          <ul className="flex flex-col gap-2 text-sm font-medium text-muted">
+            {links.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block rounded-[var(--radius)] px-2 py-2 hover:bg-bg hover:text-text"
+                >
+                  {labelFor(item.key)}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/chat"
+                className="mt-1 inline-flex rounded-[var(--radius)] bg-primary px-3.5 py-2 text-primary-fg"
+              >
+                {t("cta")}
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      ) : null}
     </header>
   );
 }

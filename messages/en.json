@@ -54,12 +54,16 @@
     "send": "Send",
     "disclaimer": "Not a licensed clinician. For personalized care, book a physiotherapist if your plan includes sessions.",
     "upgradeHint": "Upgrade to Calm+ to request physiotherapist sessions.",
+    "upgradeLink": "See packages",
     "bookHint": "You can request a physiotherapist session from Sessions.",
+    "bookLink": "Open Sessions",
     "empty": "Say hello — how can CalmIq support you today?",
+    "startersLabel": "Try asking",
     "loading": "Thinking…",
     "error": "Something went wrong. Please try again.",
     "signInRequired": "Sign in to use the chatbot.",
-    "demoMode": "Demo mode — replies are simulated without an AI key."
+    "demoMode": "Demo mode — replies are simulated without an AI key.",
+    "rateLimited": "Free plan daily chat limit reached. Upgrade to Calm+ for full access."
   },
   "sessions": {
     "title": "Physiotherapist sessions",

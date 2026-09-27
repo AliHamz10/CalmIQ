@@ -11,6 +11,7 @@ export default async function ChatPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("chat");
+  const tNav = await getTranslations("nav");
   const { user, plan } = await getUserAccess();
 
   if (!user) {
@@ -21,7 +22,7 @@ export default async function ChatPage({
           href="/login"
           className="mt-6 inline-flex rounded-[var(--radius)] bg-primary px-5 py-2.5 text-sm font-semibold text-primary-fg"
         >
-          Sign in
+          {tNav("login")}
         </Link>
       </section>
     );
@@ -29,7 +30,10 @@ export default async function ChatPage({
 
   return (
     <section className="mx-auto max-w-3xl px-6 py-10 md:px-10">
-      <ChatPanel plan={plan} demoMode={isDemoMode() || !process.env.OPENAI_API_KEY} />
+      <ChatPanel
+        plan={plan}
+        demoMode={isDemoMode() || !process.env.OPENAI_API_KEY}
+      />
     </section>
   );
 }
