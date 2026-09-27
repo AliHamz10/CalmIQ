@@ -68,9 +68,16 @@ export function ChatPanel({ plan, demoMode }: Props) {
                   : "me-auto max-w-[85%] rounded-[var(--radius)] border border-border bg-bg px-4 py-3"
               }
             >
-              <p className="whitespace-pre-wrap text-sm leading-relaxed">
-                {messageText(m)}
-              </p>
+              <div className="space-y-2 text-sm leading-relaxed">
+                {messageText(m)
+                  .split(/\n{2,}/)
+                  .filter(Boolean)
+                  .map((para, i) => (
+                    <p key={`${m.id}-${i}`} className="whitespace-pre-wrap">
+                      {para}
+                    </p>
+                  ))}
+              </div>
             </div>
           ))
         )}

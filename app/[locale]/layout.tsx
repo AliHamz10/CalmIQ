@@ -7,6 +7,8 @@ import { routing } from "@/lib/i18n/routing";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { SiteFooter } from "@/components/marketing/site-footer";
 
+const showAnalytics = process.env.VERCEL === "1";
+
 const display = Outfit({
   subsets: ["latin"],
   variable: "--font-display",
@@ -51,7 +53,7 @@ export default async function LocaleLayout({
           <main className="flex-1 w-full">{children}</main>
           <SiteFooter />
         </NextIntlClientProvider>
-        <Analytics />
+        {showAnalytics ? <Analytics /> : null}
       </body>
     </html>
   );

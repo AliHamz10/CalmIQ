@@ -112,6 +112,8 @@
   "errors": {
     "notFound": "Page not found",
     "notFoundBody": "That path does not exist.",
+    "loadFailed": "Something went wrong loading this page.",
+    "tryAgain": "Try again",
     "backHome": "Back home"
   },
   "legal": {
