@@ -1,23 +1,40 @@
 /**
  * Gemini / Google Generative AI config for the chat API.
  * Keys come from env only — never hardcode secrets.
+ *
+ * Key formats vary (e.g. legacy `AIza…`, newer `AQ.…`). We only require a
+ * non-empty string — no prefix allowlist.
  */
 
 import { APICallError } from "ai";
 
-const DEFAULT_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-3.8-flash";
+
+/** Normalize one key fragment: trim + strip accidental wrapping quotes. */
+function normalizeApiKey(raw: string): string {
+  let key = raw.trim();
+  if (
+    (key.startsWith('"') && key.endsWith('"')) ||
+    (key.startsWith("'") && key.endsWith("'"))
+  ) {
+    key = key.slice(1, -1).trim();
+  }
+  return key;
+}
 
 /** Non-empty keys from GEMINI_KNOWLEDGE_API_KEYS (comma-separated). */
 export function getGeminiApiKeys(): string[] {
   const raw = process.env.GEMINI_KNOWLEDGE_API_KEYS ?? "";
   const fromCustom = raw
     .split(",")
-    .map((k) => k.trim())
+    .map(normalizeApiKey)
     .filter((k) => k.length > 0);
   if (fromCustom.length > 0) return fromCustom;
 
   // Alias expected by @ai-sdk/google when using the default provider instance.
-  const alias = process.env.GOOGLE_GENERATIVE_AI_API_KEY?.trim();
+  const alias = normalizeApiKey(
+    process.env.GOOGLE_GENERATIVE_AI_API_KEY ?? "",
+  );
   return alias ? [alias] : [];
 }
 
@@ -30,7 +47,7 @@ export function hasGeminiApiKey(): boolean {
   return getGeminiApiKey() !== null;
 }
 
-/** Model id from GEMINI_MODEL, defaulting to gemini-2.5-flash. */
+/** Model id from GEMINI_MODEL, defaulting to gemini-3.8-flash. */
 export function getGeminiModel(): string {
   const model = process.env.GEMINI_MODEL?.trim();
   return model && model.length > 0 ? model : DEFAULT_MODEL;

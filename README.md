@@ -51,7 +51,7 @@ See [`.env.example`](.env.example). Required for production:
 - `STRIPE_PRICE_CALM_PLUS`
 - `GEMINI_KNOWLEDGE_API_KEYS` (comma-separated OK; first key used; real Google AI key required)
 - `GOOGLE_GENERATIVE_AI_API_KEY` (optional alias if the above is unset)
-- `GEMINI_MODEL` (optional; default `gemini-2.5-flash`)
+- `GEMINI_MODEL` (optional; default `gemini-3.8-flash`)
 
 ## Supabase
 
