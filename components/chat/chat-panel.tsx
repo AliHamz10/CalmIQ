@@ -122,7 +122,7 @@ export function ChatPanel({ plan, demoMode }: Props) {
         ) : null}
         {error ? (
           <p className="text-sm text-danger" role="alert">
-            {t("error")}
+            {error.message?.trim() || t("error")}
           </p>
         ) : null}
         <div ref={bottomRef} />

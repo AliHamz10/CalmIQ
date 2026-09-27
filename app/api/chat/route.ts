@@ -13,7 +13,12 @@ import {
   canAccessPhysio,
   canUseChat,
 } from "@/lib/entitlements";
-import { getGeminiApiKey, getGeminiModel } from "@/lib/gemini";
+import {
+  formatGeminiClientError,
+  getGeminiApiKey,
+  getGeminiModel,
+  isInvalidGeminiApiKeyError,
+} from "@/lib/gemini";
 import {
   createClient,
   isSupabaseConfigured,
@@ -249,6 +254,7 @@ export async function POST(req: Request) {
   const canPhysio = canAccessPhysio(access.plan);
 
   const apiKey = getGeminiApiKey();
+  // Demo only when no key is configured. Never mask Gemini failures as demo.
   if (!apiKey) {
     return demoStreamResponse(messages, canPhysio);
   }
@@ -259,10 +265,28 @@ export async function POST(req: Request) {
       model: google(getGeminiModel()),
       system: buildSystemPrompt(canPhysio),
       messages: await convertToModelMessages(messages),
+      maxRetries: 0,
+      onError: ({ error }) => {
+        console.error("[chat] gemini streamText onError", error);
+      },
     });
-    return result.toUIMessageStreamResponse();
+    return result.toUIMessageStreamResponse({
+      onError: (error) => formatGeminiClientError(error),
+    });
   } catch (err) {
-    console.error("[chat] streamText failed, falling back to demo", err);
-    return demoStreamResponse(messages, canPhysio);
+    console.error("[chat] gemini setup/stream failed", err);
+    const status = isInvalidGeminiApiKeyError(err) ? 401 : 502;
+    return new Response(
+      JSON.stringify({
+        error: formatGeminiClientError(err),
+        code: isInvalidGeminiApiKeyError(err)
+          ? "GEMINI_API_KEY_INVALID"
+          : "GEMINI_UNAVAILABLE",
+      }),
+      {
+        status,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 }
