@@ -26,14 +26,9 @@ function messageText(message: {
   return typeof message.content === "string" ? message.content : "";
 }
 
-const STARTERS = [
-  "My lower back is stiff after sitting all day",
-  "My knee clicks when I squat — should I keep training?",
-  "I twisted my ankle yesterday. What should I do today?",
-] as const;
-
 export function ChatPanel({ plan, demoMode }: Props) {
   const t = useTranslations("chat");
+  const starters = [t("starter1"), t("starter2"), t("starter3")] as const;
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const transport = useMemo(
@@ -81,7 +76,7 @@ export function ChatPanel({ plan, demoMode }: Props) {
               <p className="text-xs font-medium uppercase tracking-wide text-muted">
                 {t("startersLabel")}
               </p>
-              {STARTERS.map((prompt) => (
+              {starters.map((prompt) => (
                 <button
                   key={prompt}
                   type="button"

@@ -30,12 +30,13 @@ const DEMO_USAGE_COOKIE = "calmiq_demo_chat_usage";
 
 function buildSystemPrompt(canPhysio: boolean): string {
   return [
-    "You are CalmIq, a calm wellness companion for movement and recovery education.",
-    "You are NOT a licensed clinician. Do not diagnose, prescribe, or claim medical authority.",
-    "Encourage safe habits, pacing, and seeking professional care for red-flag symptoms.",
+    "You are CalmIq, a stress and wellbeing companion for individuals dealing with health-related stress.",
+    "Help with stress relief, calming routines, recovery comfort, and gentle self-care ideas (rest, pacing, breath, light self-massage or actuator-style comfort guidance as wellness ideas — never as medical devices or cures).",
+    "You are NOT a licensed clinician. Do not diagnose, prescribe, claim cures, or invent medical claims.",
+    "Encourage safe habits, pacing, and seeking professional care for red-flag or severe symptoms. Be clear when it is time to escalate to a human.",
     canPhysio
-      ? "This user has Calm+ and can request a physiotherapist session in the Sessions area. Suggest that when hands-on care would help."
-      : "This user is on Free. If they need a physiotherapist, gently suggest upgrading to Calm+ for session requests.",
+      ? "This user has Calm+. When hands-on care would help more than chat, suggest requesting a physiotherapist session in Sessions (Calm+ premium)."
+      : "This user is on Free. If they need hands-on physiotherapist care, gently suggest upgrading to Calm+ for session requests.",
     "Keep replies concise, warm, and practical. Match the user's language when they write in Urdu.",
   ].join(" ");
 }
@@ -47,18 +48,27 @@ function looksUrdu(text: string): boolean {
 function demoAdvice(userText: string, urdu: boolean): string {
   const t = userText.toLowerCase();
   if (urdu) {
+    if (/تناؤ|پریشان|stress|anxious|wound/.test(userText) || /stress|anxious|worry/.test(t)) {
+      return "چار گہری سانس لیں (ناک سے اندر، منہ سے آہستہ باہر)، کندھے نیچے کریں، اور پانچ منٹ ڈم لائٹ میں بیٹھیں۔ اگر علامات شدید یا اچانک ہوں تو فوری طبی مدد لیں۔";
+    }
+    if (/مساج|آرام|massage|actuator|comfort/.test(userText) || /massage|comfort|tight/.test(t)) {
+      return "نرم سیلف مساج یا آرام دہ پریشر صرف آرام کے لیے آزمائیں — درد والی جگہ پر زور نہ دیں۔ یہ طبی علاج نہیں؛ مستقل درد پر انسان سے رابطہ کریں۔";
+    }
     if (/کندھ|گردن|neck|shoulder/.test(userText) || /shoulder|neck/.test(t)) {
-      return "ایک دو دن اوورہیڈ بوجھ کم رکھیں، کندھے کانوں سے دور رکھیں، اور آہستہ بازو کھولنے کی حرکات آزمائیں۔ رات کا درد یا بے حسی ہو تو پیشہ ور سے معائنہ کروائیں۔";
+      return "کندھے کانوں سے دور رکھیں، آہستہ گردن کی طرف دیکھیں، اور چند منٹ نرم کھلنا آزمائیں۔ رات کا درد یا بے حسی ہو تو پیشہ ور سے معائنہ کروائیں۔";
     }
     if (/کمر|پیٹھ|back|sit/.test(userText) || /back|sit/.test(t)) {
-      return "دفتری اکڑن کے لیے ہر 30–45 منٹ کھڑے ہو کر چلیں، درد کی حد میں نرم کمر کی حرکات کریں، اور زبردستی اسٹریچ سے گریز کریں۔";
+      return "تناؤ والی اکڑن کے لیے ہر 30–45 منٹ کھڑے ہو کر چلیں، نرم کمر کی حرکات درد کی حد میں کریں، اور زبردستی اسٹریچ سے گریز کریں۔";
     }
-    if (/گھٹن|زانو|knee/.test(userText) || /knee|squat/.test(t)) {
-      return "بغیر تیز درد کے کلک اکثر مکینیکل شور ہوتا ہے — چند دن گہری اسکواٹ کم کریں اور سوجن یا کمزوری نوٹ کریں۔";
-    }
-    return "نرم رفتاری رکھیں، دیکھیں کون سی حرکت آرام دیتی یا بگاڑتی ہے، اور تیز درد کے باوجود زور نہ دیں۔";
+    return "نرم رفتاری رکھیں، ایک چھوٹا پرسکون معمول چنیں، اور تیز درد کے باوجود زور نہ دیں۔ شدید علامات پر فوری مدد لیں۔";
   }
 
+  if (/stress|anxious|wound.?up|overwhelm|panic|worry/.test(t)) {
+    return "Try a 2-minute downshift: longer exhales than inhales, drop your shoulders, and dim the lights. Pair with a short walk or warm shower if that feels grounding. Severe or sudden symptoms still need urgent care.";
+  }
+  if (/massage|actuator|vibration|comfort|tight shoulders|tension/.test(t)) {
+    return "Gentle self-massage or comfort pressure can ease stress tension for some people — keep it light, avoid sharp pain, and treat it as recovery comfort, not treatment. Persistent pain is a cue to escalate to a human.";
+  }
   if (/\bice\b|icing|cold pack/.test(t)) {
     return "Short icing sessions (about 10–15 minutes, cloth barrier) can help comfort early on; stop if skin gets too cold or numb. Pair with easy range-of-motion only if it stays comfortable.";
   }
@@ -69,23 +79,23 @@ function demoAdvice(userText: string, urdu: boolean): string {
     return "Knee clicks without sharp pain are often mechanical noise — reduce deep-squat volume for a few days, keep walks easy, and note swelling or giving-way (those deserve a clinician look).";
   }
   if (/back|spine|sit/.test(t)) {
-    return "For desk-related stiffness: stand and walk briefly every 30–45 minutes, try gentle pelvic tilts or cat-camel within a pain-free range, and avoid forcing end-range stretches.";
+    return "For stress-related desk stiffness: stand and walk briefly every 30–45 minutes, try gentle mobility within a pain-free range, and avoid forcing end-range stretches.";
   }
   if (/shoulder|neck|desk/.test(t)) {
-    return "Ease overhead load for a day or two, keep shoulders relaxed away from the ears, and try slow open-arm reaches. Persistent night pain or arm numbness needs a professional assessment.";
+    return "Ease load for a day or two, keep shoulders relaxed away from the ears, and try slow open-arm reaches or light comfort pressure. Persistent night pain or arm numbness needs a professional assessment.";
   }
-  return "Try gentle pacing, note what movements ease or aggravate symptoms, and avoid pushing through sharp pain.";
+  return "Try a short calm routine, gentle pacing, and note what eases or aggravates how you feel. Avoid pushing through sharp pain; escalate when symptoms are severe or sudden.";
 }
 
 function demoReply(userText: string, canPhysio: boolean): string {
   const urdu = looksUrdu(userText);
   const hint = canPhysio
     ? urdu
-      ? "Calm+ کے ساتھ آپ سیشنز سے فزیوتھیراپسٹ سیشن کی درخواست کر سکتے ہیں۔"
-      : "With Calm+, you can request a physiotherapist session from Sessions when you want hands-on help."
+      ? "Calm+ کے ساتھ آپ سیشنز سے فزیوتھیراپسٹ سیشن کی درخواست کر سکتے ہیں جب چیٹ سے زیادہ عملی دیکھ بھال چاہیے۔"
+      : "With Calm+, you can request a physiotherapist session from Sessions when you want hands-on care beyond chat."
     : urdu
-      ? "فزیوتھیراپسٹ سیشن کے لیے Calm+ میں اپگریڈ کریں۔"
-      : "Upgrade to Calm+ if you want to request a physiotherapist session.";
+      ? "عملی فزیوتھیراپسٹ دیکھ بھال کے لیے Calm+ میں اپگریڈ کریں۔"
+      : "Upgrade to Calm+ if you want to request a physiotherapist session for hands-on care.";
   const snippet = userText.slice(0, 180) + (userText.length > 180 ? "…" : "");
 
   if (urdu) {

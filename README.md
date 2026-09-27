@@ -1,6 +1,6 @@
 # CalmIq
 
-Calm wellness companion: marketing site + authenticated chat, paid physiotherapist sessions (Stripe entitlements), English/Urdu (RTL), Vercel-ready.
+Calm stress & wellbeing companion: marketing site + authenticated chat for calm routines and recovery comfort, paid physiotherapist sessions as Calm+ premium (Stripe entitlements), English/Urdu (RTL), Vercel-ready.
 
 ## Stack
 

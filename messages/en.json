@@ -1,7 +1,7 @@
 {
   "meta": {
     "brand": "CalmIq",
-    "tagline": "Calm guidance for body and mind"
+    "tagline": "A stress and wellbeing companion for everyday calm"
   },
   "nav": {
     "home": "Home",
@@ -17,63 +17,66 @@
   },
   "home": {
     "brand": "CalmIq",
-    "headline": "Move with clarity. Recover with calm.",
-    "support": "A wellness companion that listens, then guides you toward safer movement — and a physiotherapist when you need one.",
+    "headline": "Ease health stress. Find your calm.",
+    "support": "A wellbeing companion for stress relief, calming routines, and recovery comfort — with a physiotherapist when you want hands-on care.",
     "ctaPrimary": "Start chatting",
     "ctaSecondary": "See packages"
   },
   "pricing": {
-    "title": "Packages that match how you heal",
-    "subtitle": "Chat is available on every plan. Physiotherapist sessions unlock with Calm+.",
+    "title": "Packages for calm, not just clinic visits",
+    "subtitle": "Chat supports stress relief and wellbeing on every plan. Physiotherapist sessions unlock with Calm+.",
     "freeName": "Free",
     "freePrice": "$0",
-    "freeDesc": "Limited daily chat for gentle guidance and education.",
-    "freeFeature1": "Wellness chatbot (daily limit)",
+    "freeDesc": "Limited daily chat for stress relief, calm routines, and recovery comfort ideas.",
+    "freeFeature1": "Stress & wellbeing chatbot (daily limit)",
     "freeFeature2": "English & Urdu",
     "freeFeature3": "No physiotherapist sessions",
     "paidName": "Calm+",
     "paidPrice": "$29",
     "paidPeriod": "/month",
-    "paidDesc": "Full chat plus physiotherapist session requests.",
-    "paidFeature1": "Unlimited chatbot guidance",
+    "paidDesc": "Full chat plus physiotherapist session requests for deeper, human care.",
+    "paidFeature1": "Unlimited stress & calm guidance",
     "paidFeature2": "Physiotherapist session requests",
-    "paidFeature3": "Priority support cues in chat",
+    "paidFeature3": "Priority cues when to escalate to a human",
     "ctaFree": "Continue free",
     "ctaPaid": "Upgrade to Calm+",
-    "physioNote": "Physiotherapist sessions included on Calm+ only."
+    "physioNote": "Physiotherapist sessions are the Calm+ premium — included on Calm+ only."
   },
   "about": {
-    "title": "Built for calm recovery",
-    "body": "CalmIq helps you understand everyday movement discomfort with clear, careful guidance. We are not a licensed clinic in the chat — when hands-on care matters, paid members can request a physiotherapist session.",
-    "disclaimer": "CalmIq does not diagnose or replace professional medical advice. Seek urgent care for severe or sudden symptoms."
+    "title": "Built for health stress and everyday calm",
+    "body": "CalmIq helps individuals manage health-related stress: soothing check-ins, simple calm routines, and recovery-comfort ideas (rest, pacing, gentle self-massage or actuator-style comfort guidance). Chat is a companion, not a clinic — when hands-on care matters, Calm+ members can request a physiotherapist session.",
+    "disclaimer": "CalmIq does not diagnose, treat, or replace professional medical advice. Seek urgent care for severe or sudden symptoms."
   },
   "chat": {
-    "title": "CalmIq assistant",
-    "subtitle": "Ask about movement, recovery habits, and when to escalate.",
+    "title": "CalmIq companion",
+    "subtitle": "Talk through stress, calm routines, recovery comfort, and when to escalate.",
     "placeholder": "Describe how you feel or what you need…",
     "send": "Send",
-    "disclaimer": "Not a licensed clinician. For personalized care, book a physiotherapist if your plan includes sessions.",
+    "disclaimer": "Not a licensed clinician. For personalized hands-on care, book a physiotherapist if your plan includes sessions.",
     "upgradeHint": "Upgrade to Calm+ to request physiotherapist sessions.",
     "upgradeLink": "See packages",
     "bookHint": "You can request a physiotherapist session from Sessions.",
     "bookLink": "Open Sessions",
-    "empty": "Say hello — how can CalmIq support you today?",
+    "empty": "Say hello — how can CalmIq help you feel calmer today?",
     "startersLabel": "Try asking",
     "loading": "Thinking…",
     "error": "Something went wrong. Please try again.",
     "signInRequired": "Sign in to use the chatbot.",
     "demoMode": "Demo mode — replies are simulated without an AI key.",
-    "rateLimited": "Free plan daily chat limit reached. Upgrade to Calm+ for full access."
+    "rateLimited": "Free plan daily chat limit reached. Upgrade to Calm+ for full access.",
+    "starter1": "I feel wound up from health stress — how do I calm down tonight?",
+    "starter2": "Can you suggest a short calming routine after a tense day?",
+    "starter3": "My shoulders are tight from stress. Any gentle comfort ideas?"
   },
   "sessions": {
     "title": "Physiotherapist sessions",
-    "subtitle": "Request a session with a physiotherapist. Available on Calm+.",
+    "subtitle": "Request hands-on care with a physiotherapist — Calm+ premium.",
     "lockedTitle": "Sessions unlock with Calm+",
-    "lockedBody": "Free members can chat with CalmIq. Upgrade to request physiotherapist sessions.",
+    "lockedBody": "Free members can chat with CalmIq for stress relief and calm routines. Upgrade to request physiotherapist sessions.",
     "upgradeCta": "View packages",
     "formTitle": "Request a session",
     "notesLabel": "What would you like help with?",
-    "notesPlaceholder": "e.g. shoulder stiffness after desk work…",
+    "notesPlaceholder": "e.g. stress tension in my neck, recovery comfort after long days…",
     "submit": "Request session",
     "success": "Request received. Our team will follow up.",
     "listTitle": "Your requests",
@@ -111,7 +114,7 @@
   "footer": {
     "privacy": "Privacy",
     "terms": "Terms",
-    "rights": "Calm guidance, carefully scoped."
+    "rights": "Stress relief and calm, carefully scoped."
   },
   "errors": {
     "notFound": "Page not found",
@@ -124,6 +127,6 @@
     "privacyTitle": "Privacy",
     "privacyBody": "CalmIq stores account, subscription, and session-request data to deliver the product. Chat may be processed by our AI provider. Do not share sensitive medical identifiers you are not comfortable storing.",
     "termsTitle": "Terms",
-    "termsBody": "CalmIq chat is educational wellness guidance, not diagnosis or emergency care. Physiotherapist sessions are fulfilled by humans after a paid request. Use of the service constitutes acceptance of these terms."
+    "termsBody": "CalmIq chat is educational stress and wellbeing guidance, not diagnosis or emergency care. Physiotherapist sessions are fulfilled by humans after a paid Calm+ request. Use of the service constitutes acceptance of these terms."
   }
 }
