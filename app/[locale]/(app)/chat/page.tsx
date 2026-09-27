@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
 import { getUserAccess, isDemoMode } from "@/lib/auth";
+import { hasGeminiApiKey } from "@/lib/gemini";
 import { ChatPanel } from "@/components/chat/chat-panel";
 
 export default async function ChatPage({
@@ -32,7 +33,7 @@ export default async function ChatPage({
     <section className="mx-auto max-w-3xl px-6 py-10 md:px-10">
       <ChatPanel
         plan={plan}
-        demoMode={isDemoMode() || !process.env.OPENAI_API_KEY}
+        demoMode={isDemoMode() || !hasGeminiApiKey()}
       />
     </section>
   );

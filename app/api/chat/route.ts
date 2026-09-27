@@ -5,7 +5,7 @@ import {
   streamText,
   type UIMessage,
 } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { cookies } from "next/headers";
 import { getUserAccess, isDemoMode } from "@/lib/auth";
 import {
@@ -13,6 +13,7 @@ import {
   canAccessPhysio,
   canUseChat,
 } from "@/lib/entitlements";
+import { getGeminiApiKey, getGeminiModel } from "@/lib/gemini";
 import {
   createClient,
   isSupabaseConfigured,
@@ -247,13 +248,15 @@ export async function POST(req: Request) {
 
   const canPhysio = canAccessPhysio(access.plan);
 
-  if (!process.env.OPENAI_API_KEY) {
+  const apiKey = getGeminiApiKey();
+  if (!apiKey) {
     return demoStreamResponse(messages, canPhysio);
   }
 
   try {
+    const google = createGoogleGenerativeAI({ apiKey });
     const result = streamText({
-      model: openai("gpt-4o-mini"),
+      model: google(getGeminiModel()),
       system: buildSystemPrompt(canPhysio),
       messages: await convertToModelMessages(messages),
     });

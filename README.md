@@ -9,7 +9,7 @@ Calm wellness companion: marketing site + authenticated chat, paid physiotherapi
 - `next-intl` locales: `en`, `ur`
 - Supabase Auth + Postgres (RLS schema in `supabase/migrations/`)
 - Stripe Checkout / Portal / webhooks
-- Vercel AI SDK (`ai` + `@ai-sdk/openai` + `@ai-sdk/react`)
+- Vercel AI SDK (`ai` + `@ai-sdk/google` + `@ai-sdk/react`)
 
 ## Quick start
 
@@ -21,7 +21,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) — you will be redirected to `/en`.
 
-Without Supabase/Stripe/OpenAI keys the app runs in **demo mode**:
+Without Supabase/Stripe/Gemini keys the app runs in **demo mode**:
 
 1. Sign in via **Continue in demo mode** on `/en/login`
 2. Chat works with streamed placeholder replies
@@ -49,7 +49,8 @@ See [`.env.example`](.env.example). Required for production:
 - `STRIPE_SECRET_KEY`
 - `STRIPE_WEBHOOK_SECRET`
 - `STRIPE_PRICE_CALM_PLUS`
-- `OPENAI_API_KEY`
+- `GEMINI_KNOWLEDGE_API_KEYS` (comma-separated OK; first key used)
+- `GEMINI_MODEL` (optional; default `gemini-2.5-flash`)
 
 ## Supabase
 
