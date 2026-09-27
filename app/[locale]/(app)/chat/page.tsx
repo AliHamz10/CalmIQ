@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
-import { getUserAccess, isDemoMode } from "@/lib/auth";
+import { getUserAccess } from "@/lib/auth";
 import { hasGeminiApiKey } from "@/lib/gemini";
 import { ChatPanel } from "@/components/chat/chat-panel";
 
@@ -29,12 +29,11 @@ export default async function ChatPage({
     );
   }
 
+  // Banner means simulated replies only — not demo auth (no Supabase).
+  // Auth demo can coexist with a real Gemini key.
   return (
     <section className="mx-auto max-w-3xl px-6 py-10 md:px-10">
-      <ChatPanel
-        plan={plan}
-        demoMode={isDemoMode() || !hasGeminiApiKey()}
-      />
+      <ChatPanel plan={plan} demoMode={!hasGeminiApiKey()} />
     </section>
   );
 }
