@@ -7,6 +7,7 @@
     "home": "Home",
     "pricing": "Packages",
     "about": "About",
+    "routines": "Routines",
     "chat": "Chat",
     "sessions": "Sessions",
     "account": "Account",
@@ -20,7 +21,10 @@
     "headline": "Ease health stress. Find your calm.",
     "support": "A wellbeing companion for stress relief, calming routines, and recovery comfort — with a physiotherapist when you want hands-on care.",
     "ctaPrimary": "Start chatting",
-    "ctaSecondary": "See packages"
+    "ctaSecondary": "See packages",
+    "routinesTitle": "Try a calm routine",
+    "routinesSupport": "Short, guided resets for stress, desk tension, and evening wind-down — free, no sign-in.",
+    "routinesCta": "Browse routines"
   },
   "pricing": {
     "title": "Packages for calm, not just clinic visits",
@@ -29,7 +33,7 @@
     "freePrice": "$0",
     "freeDesc": "Limited daily chat for stress relief, calm routines, and recovery comfort ideas.",
     "freeFeature1": "Stress & wellbeing chatbot (daily limit)",
-    "freeFeature2": "English & Urdu",
+    "freeFeature2": "Guided calm routines + English & Urdu",
     "freeFeature3": "No physiotherapist sessions",
     "paidName": "Calm+",
     "paidPrice": "$29",
@@ -65,8 +69,124 @@
     "demoMode": "Demo mode — replies are simulated without an AI key.",
     "rateLimited": "Free plan daily chat limit reached. Upgrade to Calm+ for full access.",
     "starter1": "I feel wound up from health stress — how do I calm down tonight?",
-    "starter2": "Can you suggest a short calming routine after a tense day?",
-    "starter3": "My shoulders are tight from stress. Any gentle comfort ideas?"
+    "starter2": "Can you walk me through a short breathing or desk-reset routine?",
+    "starter3": "My shoulders are tight from stress. Any gentle comfort ideas?",
+    "routineChip": "Continue: {title}",
+    "routineChipPrompt": "I just finished the “{title}” calm routine. Can we talk about how I feel and what might help next?",
+    "routineChipBreathing": "Continue: Breathing reset",
+    "routineChipDeskReset": "Continue: Desk reset",
+    "routineChipWindDown": "Continue: Wind-down"
+  },
+  "routines": {
+    "title": "Calm routines",
+    "support": "Short guided flows for everyday stress — wellness support, not medical care.",
+    "durationMinutes": "{minutes} min",
+    "open": "Start",
+    "backToList": "All routines",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "progress": "Step {current} of {total}",
+    "timerSeconds": "{seconds}s",
+    "inhale": "Inhale",
+    "hold": "Hold",
+    "exhale": "Exhale",
+    "chatCta": "Talk about this with CalmIq",
+    "doneTitle": "You’re done",
+    "doneBody": "Take what felt useful. You can repeat this anytime, or chat if you want to unpack how you feel.",
+    "disclaimer": "These routines are general wellbeing tools for stress and comfort. They are not medical treatment, diagnosis, or a substitute for professional care. Stop if anything feels wrong, and seek urgent help for severe or sudden symptoms. Physiotherapist sessions stay on Calm+ separately.",
+    "items": {
+      "breathing": {
+        "title": "Breathing reset",
+        "intent": "A longer-exhale pattern to ease stress in about two minutes.",
+        "steps": {
+          "s1": {
+            "title": "Settle in",
+            "body": "Sit or stand comfortably. Soften your jaw and drop your shoulders. You will breathe with a slightly longer exhale — a simple way to signal calm, not a medical exercise."
+          },
+          "s2": {
+            "title": "Longer exhale",
+            "body": "Inhale gently for 4, hold for 2, exhale slowly for 6. Repeat for a few cycles. Keep the breath quiet and easy — no forcing."
+          },
+          "s3": {
+            "title": "Notice",
+            "body": "Pause. Feel your feet or the chair. Notice any ease without judging what is still tense."
+          },
+          "s4": {
+            "title": "Easy rhythm",
+            "body": "Inhale for 4, exhale for 6, a few more times. Let the out-breath be the longest part."
+          },
+          "s5": {
+            "title": "Close",
+            "body": "Return to your natural breath. Carry one slower exhale into the next moment of your day."
+          }
+        }
+      },
+      "desk-reset": {
+        "title": "Desk reset",
+        "intent": "Stand, loosen shoulders, rest your eyes, and take a short walk cue.",
+        "steps": {
+          "s1": {
+            "title": "Step away briefly",
+            "body": "Save your work if you need to. This is a short comfort break for desk stress — not physio or medical advice."
+          },
+          "s2": {
+            "title": "Stand",
+            "body": "Stand up if you can. Plant both feet. Uncross your legs and let your arms hang for a moment."
+          },
+          "s3": {
+            "title": "Shoulders",
+            "body": "Gently roll your shoulders up, back, and down a few times. Keep the range small and comfortable."
+          },
+          "s4": {
+            "title": "Eyes",
+            "body": "Look away from the screen toward something farther away. Blink slowly a few times, then soften your gaze."
+          },
+          "s5": {
+            "title": "Short walk cue",
+            "body": "If you can, walk to another room or along a short path. Even a minute of movement helps reset desk tension."
+          },
+          "s6": {
+            "title": "Return gently",
+            "body": "When you sit again, keep one easy shoulder drop and a slower breath. Come back anytime you feel wound up at the desk."
+          }
+        }
+      },
+      "wind-down": {
+        "title": "Wind-down",
+        "intent": "An evening downshift with lights, breath, and parking the phone.",
+        "steps": {
+          "s1": {
+            "title": "Evening pause",
+            "body": "This is a gentle wind-down for the day — wellbeing comfort, not sleep medicine or clinical care."
+          },
+          "s2": {
+            "title": "Softer light",
+            "body": "Dim bright screens or lamps if you can. Aim for calmer light so your body gets an “evening” cue."
+          },
+          "s3": {
+            "title": "Slow breath",
+            "body": "Inhale for 4, hold for 4, exhale for 8. A few quiet cycles — longer out-breaths, no strain."
+          },
+          "s4": {
+            "title": "Phone park",
+            "body": "Place your phone face down or out of arm’s reach for a few minutes. You can return to it after this routine."
+          },
+          "s5": {
+            "title": "Stillness",
+            "body": "Sit or lie comfortably. Notice the room around you. Let thoughts pass without chasing them."
+          },
+          "s6": {
+            "title": "One more soft breath",
+            "body": "Inhale for 4, exhale for 8, a few times. Keep it lazy and quiet."
+          },
+          "s7": {
+            "title": "Rest cue",
+            "body": "End here. Keep the softer light and slower breath into whatever comes next — rest, reading, or sleep when you are ready."
+          }
+        }
+      }
+    }
   },
   "sessions": {
     "title": "Physiotherapist sessions",
