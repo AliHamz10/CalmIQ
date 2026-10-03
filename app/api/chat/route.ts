@@ -34,6 +34,7 @@ function buildSystemPrompt(canPhysio: boolean): string {
     "Help with stress relief, calming routines, recovery comfort, and gentle self-care ideas (rest, pacing, breath, light self-massage or actuator-style comfort guidance as wellness ideas — never as medical devices or cures).",
     "You are NOT a licensed clinician. Do not diagnose, prescribe, claim cures, or invent medical claims.",
     "Encourage safe habits, pacing, and seeking professional care for red-flag or severe symptoms. Be clear when it is time to escalate to a human.",
+    "CalmIq has guided wellness routines (not treatment) at /routines/breathing (stress reset), /routines/desk-reset (desk stiffness / screen breaks), and /routines/wind-down (evening downshift). When the user mentions stress, desk tension, or evening wind-down, you may suggest the matching path as an optional self-care idea.",
     canPhysio
       ? "This user has Calm+. When hands-on care would help more than chat, suggest requesting a physiotherapist session in Sessions (Calm+ premium)."
       : "This user is on Free. If they need hands-on physiotherapist care, gently suggest upgrading to Calm+ for session requests.",
@@ -48,23 +49,40 @@ function looksUrdu(text: string): boolean {
 function demoAdvice(userText: string, urdu: boolean): string {
   const t = userText.toLowerCase();
   if (urdu) {
-    if (/تناؤ|پریشان|stress|anxious|wound/.test(userText) || /stress|anxious|worry/.test(t)) {
-      return "چار گہری سانس لیں (ناک سے اندر، منہ سے آہستہ باہر)، کندھے نیچے کریں، اور پانچ منٹ ڈم لائٹ میں بیٹھیں۔ اگر علامات شدید یا اچانک ہوں تو فوری طبی مدد لیں۔";
+    if (
+      /شام|رات|سونے|wind.?down|evening|tonight|bedtime/.test(userText) ||
+      /wind.?down|evening|tonight|bedtime/.test(t)
+    ) {
+      return "شام کے آرام کے لیے روشنی کم کریں، چند لمبی سانس لیں، اور فون ایک طرف رکھیں۔ اختیاری رہنمائی: /routines/wind-down — پرسکون معمول، طبی علاج نہیں۔ شدید علامات پر فوری مدد لیں۔";
+    }
+    if (
+      /ڈیسک|کمر|پیٹھ|کندھ|گردن|desk|sit|screen|shoulder|neck|back/.test(
+        userText,
+      ) ||
+      /desk|sit|screen|shoulder|neck|back/.test(t)
+    ) {
+      return "ڈیسک تناؤ کے لیے کھڑے ہو کر کندھے ہلائیں، آنکھیں دور کریں، اور مختصر چہل قدمی کریں۔ اختیاری رہنمائی: /routines/desk-reset — پرسکون معمول، طبی علاج نہیں۔ مستقل درد پر پیشہ ور سے پوچھیں۔";
+    }
+    if (
+      /تناؤ|پریشان|stress|anxious|wound|سانس|breath/.test(userText) ||
+      /stress|anxious|worry|breath|overwhelm/.test(t)
+    ) {
+      return "چار گہری سانس لیں (ناک سے اندر، منہ سے آہستہ باہر)، کندھے نیچے کریں، اور چند منٹ پرسکون بیٹھیں۔ اختیاری رہنمائی: /routines/breathing — پرسکون معمول، طبی علاج نہیں۔ اگر علامات شدید یا اچانک ہوں تو فوری طبی مدد لیں۔";
     }
     if (/مساج|آرام|massage|actuator|comfort/.test(userText) || /massage|comfort|tight/.test(t)) {
       return "نرم سیلف مساج یا آرام دہ پریشر صرف آرام کے لیے آزمائیں — درد والی جگہ پر زور نہ دیں۔ یہ طبی علاج نہیں؛ مستقل درد پر انسان سے رابطہ کریں۔";
     }
-    if (/کندھ|گردن|neck|shoulder/.test(userText) || /shoulder|neck/.test(t)) {
-      return "کندھے کانوں سے دور رکھیں، آہستہ گردن کی طرف دیکھیں، اور چند منٹ نرم کھلنا آزمائیں۔ رات کا درد یا بے حسی ہو تو پیشہ ور سے معائنہ کروائیں۔";
-    }
-    if (/کمر|پیٹھ|back|sit/.test(userText) || /back|sit/.test(t)) {
-      return "تناؤ والی اکڑن کے لیے ہر 30–45 منٹ کھڑے ہو کر چلیں، نرم کمر کی حرکات درد کی حد میں کریں، اور زبردستی اسٹریچ سے گریز کریں۔";
-    }
-    return "نرم رفتاری رکھیں، ایک چھوٹا پرسکون معمول چنیں، اور تیز درد کے باوجود زور نہ دیں۔ شدید علامات پر فوری مدد لیں۔";
+    return "نرم رفتاری رکھیں، ایک چھوٹا پرسکون معمول چنیں (جیسے /routines/breathing)، اور تیز درد کے باوجود زور نہ دیں۔ شدید علامات پر فوری مدد لیں۔";
   }
 
-  if (/stress|anxious|wound.?up|overwhelm|panic|worry/.test(t)) {
-    return "Try a 2-minute downshift: longer exhales than inhales, drop your shoulders, and dim the lights. Pair with a short walk or warm shower if that feels grounding. Severe or sudden symptoms still need urgent care.";
+  if (/wind.?down|evening|tonight|bedtime|sleep/.test(t)) {
+    return "For an evening downshift: dim the lights, lengthen your exhales, and park the phone aside. Optional guided flow: /routines/wind-down — wellness support, not treatment. Seek urgent care for severe or sudden symptoms.";
+  }
+  if (/desk|screen|sit|posture|stiff/.test(t) || (/shoulder|neck|back/.test(t) && /desk|sit|work|screen/.test(t))) {
+    return "For desk-related stiffness: stand, roll your shoulders, rest your eyes farther away, and take a short walk cue. Optional guided flow: /routines/desk-reset — wellness, not medical care. Persistent pain deserves a professional look.";
+  }
+  if (/stress|anxious|wound.?up|overwhelm|panic|worry|breath|calm down/.test(t)) {
+    return "Try a 2-minute stress reset: longer exhales than inhales, drop your shoulders, and soften your gaze. Optional guided flow: /routines/breathing — wellness support, not treatment. Severe or sudden symptoms still need urgent care.";
   }
   if (/massage|actuator|vibration|comfort|tight shoulders|tension/.test(t)) {
     return "Gentle self-massage or comfort pressure can ease stress tension for some people — keep it light, avoid sharp pain, and treat it as recovery comfort, not treatment. Persistent pain is a cue to escalate to a human.";
@@ -79,12 +97,12 @@ function demoAdvice(userText: string, urdu: boolean): string {
     return "Knee clicks without sharp pain are often mechanical noise — reduce deep-squat volume for a few days, keep walks easy, and note swelling or giving-way (those deserve a clinician look).";
   }
   if (/back|spine|sit/.test(t)) {
-    return "For stress-related desk stiffness: stand and walk briefly every 30–45 minutes, try gentle mobility within a pain-free range, and avoid forcing end-range stretches.";
+    return "For stress-related desk stiffness: stand and walk briefly every 30–45 minutes, try gentle mobility within a pain-free range, and avoid forcing end-range stretches. Optional: /routines/desk-reset.";
   }
   if (/shoulder|neck|desk/.test(t)) {
-    return "Ease load for a day or two, keep shoulders relaxed away from the ears, and try slow open-arm reaches or light comfort pressure. Persistent night pain or arm numbness needs a professional assessment.";
+    return "Ease load for a day or two, keep shoulders relaxed away from the ears, and try slow open-arm reaches or light comfort pressure. Optional: /routines/desk-reset. Persistent night pain or arm numbness needs a professional assessment.";
   }
-  return "Try a short calm routine, gentle pacing, and note what eases or aggravates how you feel. Avoid pushing through sharp pain; escalate when symptoms are severe or sudden.";
+  return "Try a short calm routine (for example /routines/breathing), gentle pacing, and note what eases or aggravates how you feel. Avoid pushing through sharp pain; escalate when symptoms are severe or sudden.";
 }
 
 function demoReply(userText: string, canPhysio: boolean): string {

@@ -7,10 +7,12 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
 import type { PlanId } from "@/lib/entitlements";
 import { canAccessPhysio } from "@/lib/entitlements";
+import type { RoutineSlug } from "@/lib/routines";
 
 type Props = {
   plan: PlanId;
   demoMode: boolean;
+  routineSlug?: RoutineSlug;
 };
 
 function messageText(message: {
@@ -26,8 +28,22 @@ function messageText(message: {
   return typeof message.content === "string" ? message.content : "";
 }
 
-export function ChatPanel({ plan, demoMode }: Props) {
+function routineChipLabelKey(
+  slug: RoutineSlug,
+): "routineChipBreathing" | "routineChipDeskReset" | "routineChipWindDown" {
+  switch (slug) {
+    case "breathing":
+      return "routineChipBreathing";
+    case "desk-reset":
+      return "routineChipDeskReset";
+    case "wind-down":
+      return "routineChipWindDown";
+  }
+}
+
+export function ChatPanel({ plan, demoMode, routineSlug }: Props) {
   const t = useTranslations("chat");
+  const tRoutines = useTranslations("routines");
   const starters = [t("starter1"), t("starter2"), t("starter3")] as const;
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement | null>(null);
@@ -40,6 +56,14 @@ export function ChatPanel({ plan, demoMode }: Props) {
   });
   const busy = status === "submitted" || status === "streaming";
   const paid = canAccessPhysio(plan);
+
+  const routineTitle = routineSlug
+    ? tRoutines(`items.${routineSlug}.title`)
+    : null;
+  const routinePrompt =
+    routineSlug && routineTitle
+      ? t("routineChipPrompt", { title: routineTitle })
+      : null;
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -72,6 +96,18 @@ export function ChatPanel({ plan, demoMode }: Props) {
         {messages.length === 0 ? (
           <div className="space-y-4">
             <p className="text-muted">{t("empty")}</p>
+            {routineSlug && routinePrompt ? (
+              <div className="flex flex-col gap-2">
+                <button
+                  type="button"
+                  disabled={busy}
+                  onClick={() => send(routinePrompt)}
+                  className="rounded-[var(--radius)] border border-accent/40 bg-accent/10 px-3 py-2.5 text-start text-sm font-medium text-text transition hover:border-accent hover:bg-accent/15 disabled:opacity-50"
+                >
+                  {t(routineChipLabelKey(routineSlug))}
+                </button>
+              </div>
+            ) : null}
             <div className="flex flex-col gap-2">
               <p className="text-xs font-medium uppercase tracking-wide text-muted">
                 {t("startersLabel")}
