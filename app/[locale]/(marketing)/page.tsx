@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
+import { HomeRoutinesTeaser } from "@/components/routines/home-routines-teaser";
 
 export default async function HomePage({
   params,
@@ -55,22 +56,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="border-t border-border/70 bg-surface/40">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-20">
-          <h2 className="font-display text-3xl font-semibold text-text text-balance md:text-4xl">
-            {t("routinesTitle")}
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
-            {t("routinesSupport")}
-          </p>
-          <Link
-            href="/routines"
-            className="mt-8 inline-flex items-center justify-center rounded-[var(--radius)] border border-border bg-surface px-6 py-3 text-base font-semibold text-text transition hover:bg-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            {t("routinesCta")}
-          </Link>
-        </div>
-      </section>
+      <HomeRoutinesTeaser />
     </>
   );
 }
