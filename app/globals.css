@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* Calm clinical wellness — cool teal-greens, soft neutrals */
-  --color-bg: #e8f1ee;
-  --color-bg-deep: #d3e5df;
-  --color-surface: #f7fbf9;
-  --color-text: #10241c;
-  --color-muted: #4d675c;
-  --color-primary: #0f5c45;
-  --color-primary-fg: #f3faf7;
-  --color-accent: #1f7a86;
-  --color-accent-soft: #c5e4e8;
-  --color-border: #b7cec4;
-  --color-success: #1f7a4d;
-  --color-danger: #a33b3b;
-  --color-hero-glow: rgba(31, 122, 134, 0.18);
-  --color-hero-wash: rgba(15, 92, 69, 0.12);
-  --shadow-soft: 0 18px 50px rgba(16, 36, 28, 0.08);
+  /* Stress-vest wellness — cool teal mist, deep calm greens, soft atmosphere */
+  color-scheme: light;
+  --color-bg: #eaf3f2;
+  --color-bg-deep: #d4e5e3;
+  --color-surface: #f7fbfa;
+  --color-text: #0b1e1b;
+  --color-muted: #3f5a55;
+  --color-primary: #0c524a;
+  --color-primary-fg: #f2faf8;
+  --color-accent: #1b7d82;
+  --color-accent-soft: #c4e3e4;
+  --color-border: #adc9c5;
+  --color-success: #1a6e4f;
+  --color-danger: #9e3d3d;
+  --color-hero-glow: rgba(27, 125, 130, 0.16);
+  --color-hero-wash: rgba(12, 82, 74, 0.1);
+  --shadow-soft: 0 20px 52px rgba(11, 30, 27, 0.07);
   --radius: 0.35rem;
 }
 
@@ -44,15 +45,16 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
   }
 
   body {
     margin: 0;
     min-height: 100vh;
     background:
-      radial-gradient(1200px 600px at 10% -10%, var(--color-hero-glow), transparent 60%),
-      radial-gradient(900px 500px at 90% 0%, var(--color-hero-wash), transparent 55%),
-      linear-gradient(165deg, var(--color-bg) 0%, var(--color-bg-deep) 48%, var(--color-bg) 100%);
+      radial-gradient(1180px 580px at 8% -12%, var(--color-hero-glow), transparent 62%),
+      radial-gradient(920px 520px at 92% 2%, var(--color-hero-wash), transparent 58%),
+      linear-gradient(168deg, var(--color-bg) 0%, var(--color-bg-deep) 46%, var(--color-bg) 100%);
     color: var(--color-text);
     font-family: var(--font-body), system-ui, sans-serif;
   }
