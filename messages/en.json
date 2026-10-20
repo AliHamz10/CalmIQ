@@ -28,7 +28,12 @@
     "routinesCta": "Browse routines",
     "comfortTitle": "Recovery comfort ideas",
     "comfortSupport": "Gentle self-massage, optional comfort tools, and clear paths to human care — free educational guides.",
-    "comfortCta": "Browse comfort"
+    "comfortCta": "Browse comfort",
+    "physiosIndependent": "Independent clinics — not CalmIq staff",
+    "physiosTitle": "Physiotherapists to call in {city}",
+    "physiosSupport": "Public local clinics you can phone for hands-on care. They are independent practices, not part of the CalmIq team.",
+    "physiosCall": "Call",
+    "physiosNote": "Numbers are listed for convenience. Confirm hours and availability directly with the clinic before visiting."
   },
   "pricing": {
     "title": "Packages for calm, not just clinic visits",

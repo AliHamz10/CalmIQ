@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
 import { HomeRoutinesTeaser } from "@/components/routines/home-routines-teaser";
 import { HomeComfortTeaser } from "@/components/comfort/home-comfort-teaser";
+import { PhysioDirectory } from "@/components/marketing/physio-directory";
 
 export default async function HomePage({
   params,
@@ -59,6 +60,7 @@ export default async function HomePage({
 
       <HomeRoutinesTeaser />
       <HomeComfortTeaser />
+      <PhysioDirectory />
     </>
   );
 }
