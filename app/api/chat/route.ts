@@ -35,6 +35,7 @@ function buildSystemPrompt(canPhysio: boolean): string {
     "You are NOT a licensed clinician. Do not diagnose, prescribe, claim cures, or invent medical claims.",
     "Encourage safe habits, pacing, and seeking professional care for red-flag or severe symptoms. Be clear when it is time to escalate to a human.",
     "CalmIq has guided wellness routines (not treatment) at /routines/breathing (stress reset), /routines/desk-reset (desk stiffness / screen breaks), and /routines/wind-down (evening downshift). When the user mentions stress, desk tension, or evening wind-down, you may suggest the matching path as an optional self-care idea.",
+    "CalmIq also has recovery comfort guides (wellness ideas only — not medical devices or treatment) at /comfort/self-massage (gentle self-massage / comfort-pressure for stress tightness), /comfort/comfort-tools (actuator / warmth / gentle vibration or pressure education), and /comfort/escalate (when DIY comfort is not enough — human care, Calm+ physio Sessions, urgent care / GP cues). When the user mentions tightness, massage, comfort tools/devices, actuators, or whether they should see someone, you may suggest the matching /comfort/... path as an optional self-care idea.",
     canPhysio
       ? "This user has Calm+. When hands-on care would help more than chat, suggest requesting a physiotherapist session in Sessions (Calm+ premium)."
       : "This user is on Free. If they need hands-on physiotherapist care, gently suggest upgrading to Calm+ for session requests.",
@@ -69,8 +70,27 @@ function demoAdvice(userText: string, urdu: boolean): string {
     ) {
       return "چار گہری سانس لیں (ناک سے اندر، منہ سے آہستہ باہر)، کندھے نیچے کریں، اور چند منٹ پرسکون بیٹھیں۔ اختیاری رہنمائی: /routines/breathing — پرسکون معمول، طبی علاج نہیں۔ اگر علامات شدید یا اچانک ہوں تو فوری طبی مدد لیں۔";
     }
-    if (/مساج|آرام|massage|actuator|comfort/.test(userText) || /massage|comfort|tight/.test(t)) {
-      return "نرم سیلف مساج یا آرام دہ پریشر صرف آرام کے لیے آزمائیں — درد والی جگہ پر زور نہ دیں۔ یہ طبی علاج نہیں؛ مستقل درد پر انسان سے رابطہ کریں۔";
+    if (
+      /دیکھیں|ڈاکٹر|فزیو|escalate|urgent|should I see|see someone/.test(
+        userText,
+      ) ||
+      /escalate|urgent|gp|doctor|physio|see someone/.test(t)
+    ) {
+      return "اگر گھریلو آرام کافی نہ لگے تو انسان سے رابطہ کریں — GP، فوری دیکھ بھال، یا Calm+ سیشنز۔ اختیاری رہنمائی: /comfort/escalate — تعلیمی رہنمائی، طبی علاج نہیں۔ شدید یا اچانک علامات پر فوری مدد لیں۔";
+    }
+    if (
+      /ایکچیوایٹر|وائبریشن|گرم|actuator|vibration|warmth|comfort.?tool/.test(
+        userText,
+      ) ||
+      /actuator|vibration|warmth|comfort.?tool|device/.test(t)
+    ) {
+      return "گرم پٹی یا ہلکی وائبریشن/پریشر صرف آرام کے خیالات ہیں — طبی آلات یا علاج نہیں۔ اختیاری رہنمائی: /comfort/comfort-tools۔ تیز درد پر رکیں؛ مستقل علامات پر انسان سے پوچھیں۔";
+    }
+    if (
+      /مساج|آرام|massage|comfort|tight|کندھ|گردن/.test(userText) ||
+      /massage|comfort|tight/.test(t)
+    ) {
+      return "نرم سیلف مساج یا آرام دہ پریشر صرف آرام کے لیے آزمائیں — درد والی جگہ پر زور نہ دیں۔ اختیاری رہنمائی: /comfort/self-massage — ویلی نس آئیڈیا، طبی علاج نہیں۔ مستقل درد پر انسان سے رابطہ کریں۔";
     }
     return "نرم رفتاری رکھیں، ایک چھوٹا پرسکون معمول چنیں (جیسے /routines/breathing)، اور تیز درد کے باوجود زور نہ دیں۔ شدید علامات پر فوری مدد لیں۔";
   }
@@ -84,8 +104,18 @@ function demoAdvice(userText: string, urdu: boolean): string {
   if (/stress|anxious|wound.?up|overwhelm|panic|worry|breath|calm down/.test(t)) {
     return "Try a 2-minute stress reset: longer exhales than inhales, drop your shoulders, and soften your gaze. Optional guided flow: /routines/breathing — wellness support, not treatment. Severe or sudden symptoms still need urgent care.";
   }
-  if (/massage|actuator|vibration|comfort|tight shoulders|tension/.test(t)) {
-    return "Gentle self-massage or comfort pressure can ease stress tension for some people — keep it light, avoid sharp pain, and treat it as recovery comfort, not treatment. Persistent pain is a cue to escalate to a human.";
+  if (
+    /escalate|should I see|see (a )?(doctor|gp|physio|someone)|urgent care|when (is|do) I need/.test(
+      t,
+    )
+  ) {
+    return "If DIY comfort is not enough, escalate to a human — GP, urgent care for red flags, or Calm+ physio Sessions when hands-on care fits. Optional guide: /comfort/escalate — educational rails, not a diagnosis. Seek urgent care for severe or sudden symptoms.";
+  }
+  if (/actuator|vibration|warmth|heat pack|comfort.?tool|massage gun|device/.test(t)) {
+    return "Warmth or gentle vibration/pressure tools can be optional comfort ideas for some people — wellness education only, not medical devices or cures. Optional guide: /comfort/comfort-tools. Stop if sharp pain; persistent symptoms deserve a human look.";
+  }
+  if (/massage|comfort|tight shoulders|tension|self-?massage|tightness/.test(t)) {
+    return "Gentle self-massage or comfort pressure can ease stress tension for some people — keep it light, avoid sharp pain, and treat it as recovery comfort, not treatment. Optional guide: /comfort/self-massage. Persistent pain is a cue to escalate to a human (/comfort/escalate).";
   }
   if (/\bice\b|icing|cold pack/.test(t)) {
     return "Short icing sessions (about 10–15 minutes, cloth barrier) can help comfort early on; stop if skin gets too cold or numb. Pair with easy range-of-motion only if it stays comfortable.";

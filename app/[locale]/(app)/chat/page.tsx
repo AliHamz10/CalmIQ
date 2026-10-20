@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
 import { getUserAccess } from "@/lib/auth";
 import { hasGeminiApiKey } from "@/lib/gemini";
+import { isComfortSlug } from "@/lib/comfort";
 import { isRoutineSlug } from "@/lib/routines";
 import { ChatPanel } from "@/components/chat/chat-panel";
 
@@ -10,7 +11,10 @@ export default async function ChatPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ routine?: string | string[] }>;
+  searchParams: Promise<{
+    routine?: string | string[];
+    comfort?: string | string[];
+  }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -18,9 +22,15 @@ export default async function ChatPage({
   const tNav = await getTranslations("nav");
   const { user, plan } = await getUserAccess();
   const sp = await searchParams;
+  const comfortRaw = Array.isArray(sp.comfort) ? sp.comfort[0] : sp.comfort;
   const routineRaw = Array.isArray(sp.routine) ? sp.routine[0] : sp.routine;
+  // Dual-param rule: comfort wins when both are set.
+  const comfortSlug =
+    comfortRaw && isComfortSlug(comfortRaw) ? comfortRaw : undefined;
   const routineSlug =
-    routineRaw && isRoutineSlug(routineRaw) ? routineRaw : undefined;
+    !comfortSlug && routineRaw && isRoutineSlug(routineRaw)
+      ? routineRaw
+      : undefined;
 
   if (!user) {
     return (
@@ -44,6 +54,7 @@ export default async function ChatPage({
         plan={plan}
         demoMode={!hasGeminiApiKey()}
         routineSlug={routineSlug}
+        comfortSlug={comfortSlug}
       />
     </section>
   );
