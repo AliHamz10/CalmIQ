@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  /* Stress-vest wellness — cool teal mist, deep calm greens, soft atmosphere */
+  color-scheme: light;
+  --color-bg: #eaf3f2;
+  --color-bg-deep: #d4e5e3;
+  --color-surface: #f7fbfa;
+  --color-text: #0b1e1b;
+  --color-muted: #3f5a55;
+  --color-primary: #0c524a;
+  --color-primary-fg: #f2faf8;
+  --color-accent: #1b7d82;
+  --color-accent-soft: #c4e3e4;
+  --color-border: #adc9c5;
+  --color-success: #1a6e4f;
+  --color-danger: #9e3d3d;
+  --color-hero-glow: rgba(13, 157, 255, 0.28);
+  --color-hero-wash: rgba(44, 240, 255, 0.14);
+  --color-vest-fabric: #0d9dff;
+  --color-vest-accent: #2cf0ff;
+  --color-vest-pad: #9af8ff;
+  --shadow-soft: 0 20px 52px rgba(11, 30, 27, 0.07);
+  --radius: 0.35rem;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-deep: var(--color-bg-deep);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-fg: var(--color-primary-fg);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-danger: var(--color-danger);
+  --color-vest-fabric: var(--color-vest-fabric);
+  --color-vest-accent: var(--color-vest-accent);
+  --color-vest-pad: var(--color-vest-pad);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(1180px 580px at 8% -12%, var(--color-hero-glow), transparent 62%),
+      radial-gradient(920px 520px at 92% 2%, var(--color-hero-wash), transparent 58%),
+      linear-gradient(168deg, var(--color-bg) 0%, var(--color-bg-deep) 46%, var(--color-bg) 100%);
+    color: var(--color-text);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-text);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(12px, -10px, 0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.7s ease-out both;
+}
+
+.animate-rise-delay {
+  animation: rise-in 0.8s ease-out 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise-in 0.85s ease-out 0.22s both;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 5.5s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-delay,
+  .animate-rise-delay-2,
+  .animate-soft-pulse,
+  .animate-drift {
+    animation: none;
+  }
+}
