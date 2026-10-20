@@ -21,7 +21,7 @@ export async function PricingBuySection({
   return (
     <section className="relative min-h-[calc(100vh-7.5rem)] overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="animate-drift absolute -top-24 end-[-10%] h-[28rem] w-[28rem] rounded-full bg-[color-mix(in_oklab,var(--color-vest-accent)_28%,transparent)] blur-3xl animate-soft-pulse" />
+        <div className="animate-drift absolute -top-24 end-[-10%] h-[28rem] w-[28rem] rounded-full bg-[color-mix(in_oklab,var(--color-accent-soft)_42%,transparent)] blur-3xl animate-soft-pulse" />
         <div className="absolute bottom-[-12%] start-[-16%] h-[22rem] w-[22rem] rounded-full bg-primary/15 blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.2]"

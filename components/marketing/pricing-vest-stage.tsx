@@ -1,11 +1,11 @@
-import { VestCanvas } from "./vest-canvas";
+import { VestProductPhoto } from "./vest-product-photo";
 
 type PricingVestStageProps = {
   label: string;
 };
 
 /**
- * Reuses VestCanvas for the packages / Calm+ buy page.
+ * White comfort-vest product photo for the packages / Calm+ buy page.
  * Atmosphere only — not a card; packages remain the interaction surface.
  */
 export function PricingVestStage({ label }: PricingVestStageProps) {
@@ -13,14 +13,14 @@ export function PricingVestStage({ label }: PricingVestStageProps) {
     <div className="relative isolate flex h-full min-h-[18rem] w-full items-center overflow-hidden md:min-h-[22rem] lg:min-h-0">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,var(--color-hero-glow),transparent_64%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,rgba(255,255,255,0.5),transparent_66%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-16 end-[-8%] h-56 w-56 rounded-full bg-[color-mix(in_oklab,var(--color-vest-accent)_35%,transparent)] blur-3xl animate-soft-pulse"
+        className="pointer-events-none absolute -top-16 end-[-8%] h-56 w-56 rounded-full bg-[color-mix(in_oklab,var(--color-accent-soft)_55%,transparent)] blur-3xl animate-soft-pulse"
       />
       <div className="relative h-full min-h-[inherit] w-full lg:min-h-full">
-        <VestCanvas label={label} />
+        <VestProductPhoto label={label} />
       </div>
     </div>
   );
