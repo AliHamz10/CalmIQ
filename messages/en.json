@@ -1,0 +1,409 @@
+{
+  "meta": {
+    "brand": "CalmIq",
+    "tagline": "A stress and wellbeing companion for everyday calm"
+  },
+  "nav": {
+    "home": "Home",
+    "pricing": "Packages",
+    "about": "About",
+    "routines": "Routines",
+    "comfort": "Comfort",
+    "chat": "Chat",
+    "sessions": "Sessions",
+    "account": "Account",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "cta": "Start chat",
+    "sessionsLocked": "Sessions (Calm+)"
+  },
+  "home": {
+    "brand": "CalmIq",
+    "headline": "Ease health stress. Find your calm.",
+    "support": "A wellbeing companion for stress relief, calming routines, and recovery comfort — with a physiotherapist when you want hands-on care.",
+    "ctaPrimary": "Start chatting",
+    "ctaSecondary": "See packages",
+    "routinesTitle": "Try a calm routine",
+    "routinesSupport": "Short, guided resets for stress, desk tension, and evening wind-down — free, no sign-in.",
+    "routinesCta": "Browse routines",
+    "comfortTitle": "Recovery comfort ideas",
+    "comfortSupport": "Gentle self-massage, optional comfort tools, and clear paths to human care — free educational guides.",
+    "comfortCta": "Browse comfort",
+    "vestLabel": "CalmIq comfort vest — drag to rotate, red actuators show body zones",
+    "physiosIndependent": "Independent clinics — not CalmIq staff",
+    "physiosTitle": "Physiotherapists to call in {city}",
+    "physiosSupport": "Public local clinics you can phone for hands-on care. They are independent practices, not part of the CalmIq team.",
+    "physiosCall": "Call",
+    "physiosNote": "Numbers are listed for convenience. Confirm hours and availability directly with the clinic before visiting."
+  },
+  "pricing": {
+    "brand": "CalmIq",
+    "buyTitle": "Buy Calm+",
+    "buySupport": "Full chat for stress and calm, plus physiotherapist session requests when you want hands-on care.",
+    "title": "Packages for calm, not just clinic visits",
+    "subtitle": "Chat supports stress relief and wellbeing on every plan. Physiotherapist sessions unlock with Calm+.",
+    "freeName": "Free",
+    "freePrice": "$0",
+    "freeDesc": "Limited daily chat for stress relief, calm routines, and recovery comfort ideas.",
+    "freeFeature1": "Stress & wellbeing chatbot (daily limit)",
+    "freeFeature2": "Guided calm routines, recovery comfort guides + English & Urdu",
+    "freeFeature3": "No physiotherapist sessions",
+    "freeAside": "Free still includes limited daily chat, calm routines, and recovery comfort guides — upgrade when you want Sessions.",
+    "paidName": "Calm+",
+    "paidPrice": "$29",
+    "paidPeriod": "/month",
+    "paidDesc": "Full chat plus physiotherapist session requests for deeper, human care.",
+    "paidFeature1": "Unlimited stress & calm guidance",
+    "paidFeature2": "Physiotherapist session requests",
+    "paidFeature3": "Priority cues when to escalate to a human",
+    "ctaFree": "Continue free",
+    "ctaPaid": "Upgrade to Calm+",
+    "physioNote": "Physiotherapist sessions are the Calm+ premium — included on Calm+ only.",
+    "vestLabel": "CalmIq comfort vest — drag to rotate, red actuators show body zones"
+  },
+  "about": {
+    "title": "Built for health stress and everyday calm",
+    "body": "CalmIq helps individuals manage health-related stress: soothing check-ins, simple calm routines, and recovery-comfort ideas (rest, pacing, gentle self-massage or actuator-style comfort guidance). Chat is a companion, not a clinic — when hands-on care matters, Calm+ members can request a physiotherapist session.",
+    "disclaimer": "CalmIq does not diagnose, treat, or replace professional medical advice. Seek urgent care for severe or sudden symptoms."
+  },
+  "chat": {
+    "title": "CalmIq companion",
+    "subtitle": "Talk through stress, calm routines, recovery comfort, and when to escalate.",
+    "placeholder": "Describe how you feel or what you need…",
+    "send": "Send",
+    "disclaimer": "Not a licensed clinician. For personalized hands-on care, book a physiotherapist if your plan includes sessions.",
+    "upgradeHint": "Upgrade to Calm+ to request physiotherapist sessions.",
+    "upgradeLink": "See packages",
+    "bookHint": "You can request a physiotherapist session from Sessions.",
+    "bookLink": "Open Sessions",
+    "empty": "Say hello — how can CalmIq help you feel calmer today?",
+    "startersLabel": "Try asking",
+    "loading": "Thinking…",
+    "error": "Something went wrong. Please try again.",
+    "signInRequired": "Sign in to use the chatbot.",
+    "demoMode": "Demo mode — replies are simulated without an AI key.",
+    "rateLimited": "Free plan daily chat limit reached. Upgrade to Calm+ for full access.",
+    "starter1": "I feel wound up from health stress — how do I calm down tonight?",
+    "starter2": "Can you walk me through a short breathing or desk-reset routine?",
+    "starter3": "My shoulders are tight from stress. Any gentle comfort ideas?",
+    "routineChip": "Continue: {title}",
+    "routineChipPrompt": "I just finished the “{title}” calm routine. Can we talk about how I feel and what might help next?",
+    "routineChipBreathing": "Continue: Breathing reset",
+    "routineChipDeskReset": "Continue: Desk reset",
+    "routineChipWindDown": "Continue: Wind-down",
+    "comfortChip": "Continue: {title}",
+    "comfortChipPrompt": "I just explored the “{title}” comfort guide. Can we talk about how I feel and gentle next steps?",
+    "comfortChipSelfMassage": "Continue: Gentle self-massage",
+    "comfortChipComfortTools": "Continue: Comfort tools",
+    "comfortChipEscalate": "Continue: When to get help"
+  },
+  "comfort": {
+    "title": "Recovery comfort",
+    "support": "Educational wellness ideas for everyday tightness and stress-related comfort — not medical care. Prefer timed breath resets? Try Calm Routines.",
+    "durationMinutes": "{minutes} min",
+    "suggestedMinutes": "About {minutes} minutes to try",
+    "open": "Open",
+    "backToList": "All comfort",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "progress": "Section {current} of {total}",
+    "chatCta": "Talk about this with CalmIq",
+    "routinesCta": "Browse calm routines",
+    "sessionsCta": "Physiotherapist sessions (Calm+)",
+    "pricingCta": "See packages",
+    "doneTitle": "You’re done",
+    "doneBody": "Take what felt useful. You can revisit anytime, chat for a check-in, or open Calm Routines for a short timed reset.",
+    "disclaimer": "These guides share general wellness and comfort ideas only. They are not medical advice, diagnosis, treatment, or guidance about medical devices. Stop if you feel sharp pain, numbness, dizziness, or anything that feels wrong. Seek urgent care for severe or sudden symptoms. Physiotherapist sessions remain a Calm+ feature.",
+    "items": {
+      "self-massage": {
+        "title": "Gentle self-massage",
+        "intent": "Soft comfort-pressure ideas for stress-related tightness in shoulders, neck, and hands.",
+        "sections": {
+          "s1": {
+            "title": "Settle and soften",
+            "body": "This is a wellness comfort idea, not a clinical massage. Sit or stand where you feel steady. Soften your jaw and breathe easily. You will try light pressure only — never force, never “work through” sharp pain."
+          },
+          "s2": {
+            "title": "Shoulders",
+            "body": "Place a hand on the opposite upper shoulder. Use slow, light circles or brief holds where it feels tense from stress. Keep pressure comfortable — like easing fabric, not digging in. Switch sides if you like."
+          },
+          "s3": {
+            "title": "Neck sides",
+            "body": "With fingertips, gently stroke or hold the soft area along the side of your neck (not the front throat). Move slowly. If anything feels sharp, stop and rest. This is comfort exploration, not injury rehab."
+          },
+          "s4": {
+            "title": "Hands and wrists",
+            "body": "Massage the base of each thumb and the soft palm with easy pressure. Open and close the hand a few times. Useful after long typing days — still wellness only, not a promise of pain relief."
+          },
+          "s5": {
+            "title": "Stop cues",
+            "body": "Stop immediately for sharp pain, tingling that worsens, swelling, or dizziness. Skip self-massage over bruises, open skin, or areas a clinician told you to rest. Comfort ideas are optional; resting is always allowed."
+          },
+          "s6": {
+            "title": "Close gently",
+            "body": "Drop your shoulders once more and take a slower exhale. If tightness keeps returning or limits your day, consider Calm Routines for a short reset, chat for a check-in, or the escalate guide when human care may help."
+          }
+        }
+      },
+      "comfort-tools": {
+        "title": "Comfort tools",
+        "intent": "Optional warmth, gentle pressure, or soft vibration-style comfort as wellness education — not product pitches.",
+        "sections": {
+          "s1": {
+            "title": "Tools as options",
+            "body": "Some people like warmth, gentle pressure, or soft vibration-style comfort for stress-related tightness. These are optional wellness ideas — not prescriptions, endorsements, or clinical equipment. Skip anything that feels unsafe for you."
+          },
+          "s2": {
+            "title": "Warmth",
+            "body": "A warm (not hot) pack or wrap on shoulders or lower back for a short stretch can feel soothing. Keep heat mild, check skin often, and never sleep on high heat. Stop if skin gets too warm or irritated."
+          },
+          "s3": {
+            "title": "Gentle pressure",
+            "body": "A soft cushion, rolled towel, or gentle pressure aid can give a comfort cue while you rest. Keep intensity light. This is about ease, not forcing tissue change or “fixing” an injury."
+          },
+          "s4": {
+            "title": "Soft vibration-style comfort",
+            "body": "If you already own a gentle vibration or massage-style consumer tool, short, light use on large muscle areas may feel relaxing for some people. Follow the maker’s safety notes. CalmIq does not sell or recommend specific products."
+          },
+          "s5": {
+            "title": "Safety rails",
+            "body": "Do not use heat, pressure, or vibration tools on broken skin, numb areas, or where a clinician advised caution. Skip products that claim to fix health conditions. Here they are comfort options only — not clinical equipment."
+          },
+          "s6": {
+            "title": "Choose what helps",
+            "body": "Keep what felt pleasant; leave the rest. For timed breath resets, open Calm Routines. If DIY comfort is not enough, see the escalate guide for human care paths, including Calm+ physiotherapist sessions."
+          }
+        }
+      },
+      "escalate": {
+        "title": "When to get help",
+        "intent": "Clear rails from DIY comfort toward human care — Calm+ physio sessions vs urgent or GP cues.",
+        "sections": {
+          "s1": {
+            "title": "Comfort has limits",
+            "body": "Self-massage, rest, routines, and optional tools can support everyday stress comfort. They are not a substitute for professional care when symptoms are strong, lasting, or worrying. This guide helps you choose a next step — without labeling your symptoms."
+          },
+          "s2": {
+            "title": "Signs DIY may not be enough",
+            "body": "Consider human help if tightness or discomfort keeps disrupting sleep or work, worsens over days, follows an injury you are unsure about, or comes with red-flag feelings (severe sudden pain, chest pressure, trouble breathing, weakness, confusion). Trust your judgment to seek care early."
+          },
+          "s3": {
+            "title": "Calm+ physiotherapist sessions",
+            "body": "For hands-on wellbeing support when you want a human physiotherapist, Calm+ members can request Sessions inside CalmIq. Free plans keep chat, routines, and these comfort guides; physiotherapist sessions stay Calm+-only. If Sessions are locked, open Packages to learn about Calm+."
+          },
+          "s4": {
+            "title": "Urgent care and your GP",
+            "body": "For severe, sudden, or emergency-feeling symptoms, contact local urgent or emergency services — do not wait on chat. For ongoing concerns that are not emergencies, your GP or another licensed clinician is the right path. CalmIq chat can help you plan questions; it cannot replace them."
+          },
+          "s5": {
+            "title": "You can return anytime",
+            "body": "Use comfort guides and Calm Routines when they help. Chat when you want a soft check-in. Escalate to Sessions (Calm+) or outside clinical care when DIY is not enough. Taking that step is part of looking after yourself."
+          }
+        }
+      }
+    }
+  },
+  "routines": {
+    "title": "Calm routines",
+    "support": "Short guided flows for everyday stress — wellness support, not medical care.",
+    "durationMinutes": "{minutes} min",
+    "open": "Start",
+    "backToList": "All routines",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "progress": "Step {current} of {total}",
+    "timerSeconds": "{seconds}s",
+    "inhale": "Inhale",
+    "hold": "Hold",
+    "exhale": "Exhale",
+    "chatCta": "Talk about this with CalmIq",
+    "doneTitle": "You’re done",
+    "doneBody": "Take what felt useful. You can repeat this anytime, or chat if you want to unpack how you feel.",
+    "disclaimer": "These routines are general wellbeing tools for stress and comfort. They are not medical treatment, diagnosis, or a substitute for professional care. Stop if anything feels wrong, and seek urgent help for severe or sudden symptoms. Physiotherapist sessions stay on Calm+ separately.",
+    "items": {
+      "breathing": {
+        "title": "Breathing reset",
+        "intent": "A longer-exhale pattern to ease stress in about two minutes.",
+        "steps": {
+          "s1": {
+            "title": "Settle in",
+            "body": "Sit or stand comfortably. Soften your jaw and drop your shoulders. You will breathe with a slightly longer exhale — a simple way to signal calm, not a medical exercise."
+          },
+          "s2": {
+            "title": "Longer exhale",
+            "body": "Inhale gently for 4, hold for 2, exhale slowly for 6. Repeat for a few cycles. Keep the breath quiet and easy — no forcing."
+          },
+          "s3": {
+            "title": "Notice",
+            "body": "Pause. Feel your feet or the chair. Notice any ease without judging what is still tense."
+          },
+          "s4": {
+            "title": "Easy rhythm",
+            "body": "Inhale for 4, exhale for 6, a few more times. Let the out-breath be the longest part."
+          },
+          "s5": {
+            "title": "Close",
+            "body": "Return to your natural breath. Carry one slower exhale into the next moment of your day."
+          }
+        }
+      },
+      "desk-reset": {
+        "title": "Desk reset",
+        "intent": "Stand, loosen shoulders, rest your eyes, and take a short walk cue.",
+        "steps": {
+          "s1": {
+            "title": "Step away briefly",
+            "body": "Save your work if you need to. This is a short comfort break for desk stress — not physio or medical advice."
+          },
+          "s2": {
+            "title": "Stand",
+            "body": "Stand up if you can. Plant both feet. Uncross your legs and let your arms hang for a moment."
+          },
+          "s3": {
+            "title": "Shoulders",
+            "body": "Gently roll your shoulders up, back, and down a few times. Keep the range small and comfortable."
+          },
+          "s4": {
+            "title": "Eyes",
+            "body": "Look away from the screen toward something farther away. Blink slowly a few times, then soften your gaze."
+          },
+          "s5": {
+            "title": "Short walk cue",
+            "body": "If you can, walk to another room or along a short path. Even a minute of movement helps reset desk tension."
+          },
+          "s6": {
+            "title": "Return gently",
+            "body": "When you sit again, keep one easy shoulder drop and a slower breath. Come back anytime you feel wound up at the desk."
+          }
+        }
+      },
+      "wind-down": {
+        "title": "Wind-down",
+        "intent": "An evening downshift with lights, breath, and parking the phone.",
+        "steps": {
+          "s1": {
+            "title": "Evening pause",
+            "body": "This is a gentle wind-down for the day — wellbeing comfort, not sleep medicine or clinical care."
+          },
+          "s2": {
+            "title": "Softer light",
+            "body": "Dim bright screens or lamps if you can. Aim for calmer light so your body gets an “evening” cue."
+          },
+          "s3": {
+            "title": "Slow breath",
+            "body": "Inhale for 4, hold for 4, exhale for 8. A few quiet cycles — longer out-breaths, no strain."
+          },
+          "s4": {
+            "title": "Phone park",
+            "body": "Place your phone face down or out of arm’s reach for a few minutes. You can return to it after this routine."
+          },
+          "s5": {
+            "title": "Stillness",
+            "body": "Sit or lie comfortably. Notice the room around you. Let thoughts pass without chasing them."
+          },
+          "s6": {
+            "title": "One more soft breath",
+            "body": "Inhale for 4, exhale for 8, a few times. Keep it lazy and quiet."
+          },
+          "s7": {
+            "title": "Rest cue",
+            "body": "End here. Keep the softer light and slower breath into whatever comes next — rest, reading, or sleep when you are ready."
+          }
+        }
+      }
+    }
+  },
+  "sessions": {
+    "title": "Physiotherapist sessions",
+    "subtitle": "Request hands-on care with a physiotherapist — Calm+ premium.",
+    "lockedTitle": "Sessions unlock with Calm+",
+    "lockedBody": "Free members can chat with CalmIq for stress relief and calm routines. Upgrade to request physiotherapist sessions.",
+    "upgradeCta": "View packages",
+    "formTitle": "Request a session",
+    "notesLabel": "What would you like help with?",
+    "notesPlaceholder": "e.g. stress tension in my neck, recovery comfort after long days…",
+    "submit": "Request session",
+    "success": "Request received. Our team will follow up.",
+    "listTitle": "Your requests",
+    "empty": "No session requests yet.",
+    "statusRequested": "Requested",
+    "statusScheduled": "Scheduled",
+    "statusCompleted": "Completed",
+    "statusCanceled": "Canceled",
+    "errorForbidden": "Physiotherapist sessions require an active Calm+ subscription.",
+    "errorGeneric": "Could not submit request. Try again."
+  },
+  "account": {
+    "title": "Account",
+    "plan": "Current plan",
+    "planFree": "Free",
+    "planPaid": "Calm+",
+    "manageBilling": "Manage billing",
+    "demoNotice": "Running in demo mode (no Supabase keys). Use the toggles below to simulate plans.",
+    "simulateFree": "Simulate Free",
+    "simulatePaid": "Simulate Calm+",
+    "signInPrompt": "Sign in to manage your plan and sessions.",
+    "email": "Email",
+    "locale": "Preferred language"
+  },
+  "login": {
+    "title": "Sign in to CalmIq",
+    "subtitle": "Use your email for a magic link, or try demo mode locally.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "submit": "Send magic link",
+    "sent": "Check your email for a sign-in link.",
+    "demoCta": "Continue in demo mode",
+    "error": "Could not start sign-in. Check configuration."
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "rights": "Stress relief and calm, carefully scoped."
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundBody": "That path does not exist.",
+    "loadFailed": "Something went wrong loading this page.",
+    "tryAgain": "Try again",
+    "backHome": "Back home"
+  },
+  "legal": {
+    "privacyTitle": "Privacy",
+    "privacyBody": "CalmIq stores account, subscription, and session-request data to deliver the product. Chat may be processed by our AI provider. Do not share sensitive medical identifiers you are not comfortable storing.",
+    "termsTitle": "Terms",
+    "termsBody": "CalmIq chat is educational stress and wellbeing guidance, not diagnosis or emergency care. Physiotherapist sessions are fulfilled by humans after a paid Calm+ request. Use of the service constitutes acceptance of these terms."
+  },
+  "vest": {
+    "rotateHint": "Drag or click to rotate · tap a red actuator for zone info",
+    "closeInfo": "Close",
+    "viewToggleLabel": "Vest view",
+    "viewProduct": "Product",
+    "viewWorn": "Worn",
+    "wornLabel": "Person wearing CalmIq blue comfort vest with defined red hardware actuator pads and red wires to a lithium battery",
+    "zones": {
+      "traps": {
+        "name": "Upper traps",
+        "body": "Gentle actuator comfort along the upper trapezius — eases stress-held neck and shoulder tension."
+      },
+      "shoulders": {
+        "name": "Shoulders",
+        "body": "Pads over the deltoid and shoulder girdle for soft pressure when desk stress tightens the top of the arms."
+      },
+      "chest": {
+        "name": "Chest & ribs",
+        "body": "Front panels cue easier breathing space across the chest wall — comfort only, not clinical treatment."
+      },
+      "midBack": {
+        "name": "Mid-back",
+        "body": "Thoracic-zone actuators for the area between the shoulder blades where posture stress often gathers."
+      },
+      "lowerBack": {
+        "name": "Lower back",
+        "body": "Lower lumbar band for light, even comfort pressure after long sitting — wellness support, not physio."
+      }
+    }
+  }
+}
