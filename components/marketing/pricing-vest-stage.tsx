@@ -1,26 +1,26 @@
-import { VestCanvas } from "./vest-canvas";
+import { VestProductPhoto } from "./vest-product-photo";
 
 type PricingVestStageProps = {
   label: string;
 };
 
 /**
- * Rotatable blue-glass 3D vest for the packages / Calm+ buy page.
- * Atmosphere + orbit — not a card; pointer events stay enabled for drag.
+ * Photoreal person wearing the translucent blue comfort vest (Packages / buy).
+ * Home keeps the rotatable R3F wearable vest; buy shows real-life fit.
  */
 export function PricingVestStage({ label }: PricingVestStageProps) {
   return (
     <div className="relative isolate h-full min-h-[inherit] w-full overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,var(--color-hero-glow),transparent_64%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_58%_44%,color-mix(in_oklab,var(--color-vest-fabric)_16%,transparent),transparent_62%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-16 end-[-8%] h-56 w-56 rounded-full bg-[color-mix(in_oklab,var(--color-vest-accent)_35%,transparent)] blur-3xl animate-soft-pulse"
+        className="pointer-events-none absolute bottom-[-10%] end-[-6%] h-64 w-64 rounded-full bg-[color-mix(in_oklab,var(--color-vest-accent)_28%,transparent)] blur-3xl"
       />
-      <div className="relative h-full min-h-[inherit] w-full touch-none">
-        <VestCanvas label={label} />
+      <div className="relative h-full min-h-[inherit] w-full">
+        <VestProductPhoto label={label} priority />
       </div>
     </div>
   );

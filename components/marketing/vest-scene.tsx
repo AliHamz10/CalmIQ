@@ -46,15 +46,16 @@ function SceneContents({ reduceMotion }: { reduceMotion: boolean }) {
           {vest}
         </Float>
       )}
+      {/* Soft ground contact only — never a hard grey plate */}
       <ContactShadows
-        position={[0, -1.15, 0]}
-        opacity={0.34}
-        scale={8}
-        blur={2.2}
-        far={3.5}
+        position={[0, -1.2, 0]}
+        opacity={0.26}
+        scale={7}
+        blur={2.8}
+        far={3.2}
         color="#0a3a5c"
       />
-      <Environment preset="city" environmentIntensity={0.45} />
+      <Environment preset="city" environmentIntensity={0.4} />
     </>
   );
 }
@@ -91,8 +92,8 @@ export function VestScene({ label, fallback }: VestSceneProps) {
       <div className="h-full w-full touch-none" role="img" aria-label={label}>
         <Canvas
           shadows
-          camera={{ position: [0.55, 0.4, 3.35], fov: 36 }}
-          dpr={[1, 1.75]}
+          camera={{ position: [0.5, 0.35, 3.55], fov: 34 }}
+          dpr={[1, 1.5]}
           gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
           style={{ background: "transparent", touchAction: "none" }}
           onCreated={({ gl }) => {
