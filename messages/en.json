@@ -8,6 +8,7 @@
     "pricing": "Packages",
     "about": "About",
     "routines": "Routines",
+    "comfort": "Comfort",
     "chat": "Chat",
     "sessions": "Sessions",
     "account": "Account",
@@ -24,7 +25,10 @@
     "ctaSecondary": "See packages",
     "routinesTitle": "Try a calm routine",
     "routinesSupport": "Short, guided resets for stress, desk tension, and evening wind-down — free, no sign-in.",
-    "routinesCta": "Browse routines"
+    "routinesCta": "Browse routines",
+    "comfortTitle": "Recovery comfort ideas",
+    "comfortSupport": "Gentle self-massage, optional comfort tools, and clear paths to human care — free educational guides.",
+    "comfortCta": "Browse comfort"
   },
   "pricing": {
     "title": "Packages for calm, not just clinic visits",
@@ -33,7 +37,7 @@
     "freePrice": "$0",
     "freeDesc": "Limited daily chat for stress relief, calm routines, and recovery comfort ideas.",
     "freeFeature1": "Stress & wellbeing chatbot (daily limit)",
-    "freeFeature2": "Guided calm routines + English & Urdu",
+    "freeFeature2": "Guided calm routines, recovery comfort guides + English & Urdu",
     "freeFeature3": "No physiotherapist sessions",
     "paidName": "Calm+",
     "paidPrice": "$29",
@@ -75,7 +79,119 @@
     "routineChipPrompt": "I just finished the “{title}” calm routine. Can we talk about how I feel and what might help next?",
     "routineChipBreathing": "Continue: Breathing reset",
     "routineChipDeskReset": "Continue: Desk reset",
-    "routineChipWindDown": "Continue: Wind-down"
+    "routineChipWindDown": "Continue: Wind-down",
+    "comfortChip": "Continue: {title}",
+    "comfortChipPrompt": "I just explored the “{title}” comfort guide. Can we talk about how I feel and gentle next steps?",
+    "comfortChipSelfMassage": "Continue: Gentle self-massage",
+    "comfortChipComfortTools": "Continue: Comfort tools",
+    "comfortChipEscalate": "Continue: When to get help"
+  },
+  "comfort": {
+    "title": "Recovery comfort",
+    "support": "Educational wellness ideas for everyday tightness and stress-related comfort — not medical care. Prefer timed breath resets? Try Calm Routines.",
+    "durationMinutes": "{minutes} min",
+    "suggestedMinutes": "About {minutes} minutes to try",
+    "open": "Open",
+    "backToList": "All comfort",
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "progress": "Section {current} of {total}",
+    "chatCta": "Talk about this with CalmIq",
+    "routinesCta": "Browse calm routines",
+    "sessionsCta": "Physiotherapist sessions (Calm+)",
+    "pricingCta": "See packages",
+    "doneTitle": "You’re done",
+    "doneBody": "Take what felt useful. You can revisit anytime, chat for a check-in, or open Calm Routines for a short timed reset.",
+    "disclaimer": "These guides share general wellness and comfort ideas only. They are not medical advice, diagnosis, treatment, or guidance about medical devices. Stop if you feel sharp pain, numbness, dizziness, or anything that feels wrong. Seek urgent care for severe or sudden symptoms. Physiotherapist sessions remain a Calm+ feature.",
+    "items": {
+      "self-massage": {
+        "title": "Gentle self-massage",
+        "intent": "Soft comfort-pressure ideas for stress-related tightness in shoulders, neck, and hands.",
+        "sections": {
+          "s1": {
+            "title": "Settle and soften",
+            "body": "This is a wellness comfort idea, not a clinical massage. Sit or stand where you feel steady. Soften your jaw and breathe easily. You will try light pressure only — never force, never “work through” sharp pain."
+          },
+          "s2": {
+            "title": "Shoulders",
+            "body": "Place a hand on the opposite upper shoulder. Use slow, light circles or brief holds where it feels tense from stress. Keep pressure comfortable — like easing fabric, not digging in. Switch sides if you like."
+          },
+          "s3": {
+            "title": "Neck sides",
+            "body": "With fingertips, gently stroke or hold the soft area along the side of your neck (not the front throat). Move slowly. If anything feels sharp, stop and rest. This is comfort exploration, not injury rehab."
+          },
+          "s4": {
+            "title": "Hands and wrists",
+            "body": "Massage the base of each thumb and the soft palm with easy pressure. Open and close the hand a few times. Useful after long typing days — still wellness only, not a promise of pain relief."
+          },
+          "s5": {
+            "title": "Stop cues",
+            "body": "Stop immediately for sharp pain, tingling that worsens, swelling, or dizziness. Skip self-massage over bruises, open skin, or areas a clinician told you to rest. Comfort ideas are optional; resting is always allowed."
+          },
+          "s6": {
+            "title": "Close gently",
+            "body": "Drop your shoulders once more and take a slower exhale. If tightness keeps returning or limits your day, consider Calm Routines for a short reset, chat for a check-in, or the escalate guide when human care may help."
+          }
+        }
+      },
+      "comfort-tools": {
+        "title": "Comfort tools",
+        "intent": "Optional warmth, gentle pressure, or soft vibration-style comfort as wellness education — not product pitches.",
+        "sections": {
+          "s1": {
+            "title": "Tools as options",
+            "body": "Some people like warmth, gentle pressure, or soft vibration-style comfort for stress-related tightness. These are optional wellness ideas — not prescriptions, endorsements, or clinical equipment. Skip anything that feels unsafe for you."
+          },
+          "s2": {
+            "title": "Warmth",
+            "body": "A warm (not hot) pack or wrap on shoulders or lower back for a short stretch can feel soothing. Keep heat mild, check skin often, and never sleep on high heat. Stop if skin gets too warm or irritated."
+          },
+          "s3": {
+            "title": "Gentle pressure",
+            "body": "A soft cushion, rolled towel, or gentle pressure aid can give a comfort cue while you rest. Keep intensity light. This is about ease, not forcing tissue change or “fixing” an injury."
+          },
+          "s4": {
+            "title": "Soft vibration-style comfort",
+            "body": "If you already own a gentle vibration or massage-style consumer tool, short, light use on large muscle areas may feel relaxing for some people. Follow the maker’s safety notes. CalmIq does not sell or recommend specific products."
+          },
+          "s5": {
+            "title": "Safety rails",
+            "body": "Do not use heat, pressure, or vibration tools on broken skin, numb areas, or where a clinician advised caution. Skip products that claim to fix health conditions. Here they are comfort options only — not clinical equipment."
+          },
+          "s6": {
+            "title": "Choose what helps",
+            "body": "Keep what felt pleasant; leave the rest. For timed breath resets, open Calm Routines. If DIY comfort is not enough, see the escalate guide for human care paths, including Calm+ physiotherapist sessions."
+          }
+        }
+      },
+      "escalate": {
+        "title": "When to get help",
+        "intent": "Clear rails from DIY comfort toward human care — Calm+ physio sessions vs urgent or GP cues.",
+        "sections": {
+          "s1": {
+            "title": "Comfort has limits",
+            "body": "Self-massage, rest, routines, and optional tools can support everyday stress comfort. They are not a substitute for professional care when symptoms are strong, lasting, or worrying. This guide helps you choose a next step — without labeling your symptoms."
+          },
+          "s2": {
+            "title": "Signs DIY may not be enough",
+            "body": "Consider human help if tightness or discomfort keeps disrupting sleep or work, worsens over days, follows an injury you are unsure about, or comes with red-flag feelings (severe sudden pain, chest pressure, trouble breathing, weakness, confusion). Trust your judgment to seek care early."
+          },
+          "s3": {
+            "title": "Calm+ physiotherapist sessions",
+            "body": "For hands-on wellbeing support when you want a human physiotherapist, Calm+ members can request Sessions inside CalmIq. Free plans keep chat, routines, and these comfort guides; physiotherapist sessions stay Calm+-only. If Sessions are locked, open Packages to learn about Calm+."
+          },
+          "s4": {
+            "title": "Urgent care and your GP",
+            "body": "For severe, sudden, or emergency-feeling symptoms, contact local urgent or emergency services — do not wait on chat. For ongoing concerns that are not emergencies, your GP or another licensed clinician is the right path. CalmIq chat can help you plan questions; it cannot replace them."
+          },
+          "s5": {
+            "title": "You can return anytime",
+            "body": "Use comfort guides and Calm Routines when they help. Chat when you want a soft check-in. Escalate to Sessions (Calm+) or outside clinical care when DIY is not enough. Taking that step is part of looking after yourself."
+          }
+        }
+      }
+    }
   },
   "routines": {
     "title": "Calm routines",
