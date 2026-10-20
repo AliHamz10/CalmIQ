@@ -82,15 +82,15 @@ export function VestScene({ label, fallback }: VestSceneProps) {
             gl.setClearColor(0x000000, 0);
           }}
         >
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[3.5, 4.5, 2.5]} intensity={1.2} />
-          <directionalLight position={[-2.5, 1.5, -1.5]} intensity={0.4} color="#8fd4d8" />
+          <ambientLight intensity={0.72} />
+          <directionalLight position={[3.5, 4.5, 2.5]} intensity={1.35} color="#e8f7ff" />
+          <directionalLight position={[-2.5, 1.5, -1.5]} intensity={0.55} color="#5ecfff" />
           <spotLight
             position={[0, 3.2, 2]}
-            intensity={0.55}
+            intensity={0.7}
             angle={0.45}
             penumbra={0.7}
-            color="#d8f4f2"
+            color="#c8f0ff"
           />
           <Suspense fallback={null}>
             <SceneContents reduceMotion={reduceMotion} />

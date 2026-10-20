@@ -29,7 +29,7 @@
     "comfortTitle": "Recovery comfort ideas",
     "comfortSupport": "Gentle self-massage, optional comfort tools, and clear paths to human care — free educational guides.",
     "comfortCta": "Browse comfort",
-    "vestLabel": "CalmIq comfort vest — soft 3D preview",
+    "vestLabel": "CalmIq comfort vest with soft human silhouette — glass blue 3D preview",
     "physiosIndependent": "Independent clinics — not CalmIq staff",
     "physiosTitle": "Physiotherapists to call in {city}",
     "physiosSupport": "Public local clinics you can phone for hands-on care. They are independent practices, not part of the CalmIq team.",
@@ -54,7 +54,8 @@
     "paidFeature3": "Priority cues when to escalate to a human",
     "ctaFree": "Continue free",
     "ctaPaid": "Upgrade to Calm+",
-    "physioNote": "Physiotherapist sessions are the Calm+ premium — included on Calm+ only."
+    "physioNote": "Physiotherapist sessions are the Calm+ premium — included on Calm+ only.",
+    "vestLabel": "CalmIq comfort vest with soft human silhouette — Calm+ package preview"
   },
   "about": {
     "title": "Built for health stress and everyday calm",
