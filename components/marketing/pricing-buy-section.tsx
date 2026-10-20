@@ -32,14 +32,14 @@ export async function PricingBuySection({
         />
       </div>
 
-      {/* Dominant vest + human plane via PricingVestStage */}
-      <div className="pointer-events-none absolute inset-y-0 end-0 z-0 w-full md:w-[54%] lg:w-[58%]">
+      {/* Dominant white comfort-vest product plane */}
+      <div className="pointer-events-none absolute inset-y-0 end-0 z-0 w-full md:w-[56%] lg:w-[60%]">
         <PricingVestStage label={t("vestLabel")} />
       </div>
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 start-0 z-[1] w-full max-w-3xl bg-gradient-to-r from-[var(--color-bg)] from-30% via-[color-mix(in_oklab,var(--color-bg)_78%,transparent)] to-transparent rtl:bg-gradient-to-l md:w-[52%]"
+        className="pointer-events-none absolute inset-y-0 start-0 z-[1] w-full max-w-3xl bg-gradient-to-r from-[var(--color-bg)] from-22% via-[color-mix(in_oklab,var(--color-bg)_68%,transparent)] to-transparent rtl:bg-gradient-to-l md:w-[48%]"
       />
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7.5rem)] max-w-6xl flex-col justify-center px-6 py-16 md:px-10 md:py-20">
