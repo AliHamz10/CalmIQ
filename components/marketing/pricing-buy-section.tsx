@@ -9,8 +9,9 @@ type PricingBuySectionProps = {
 };
 
 /**
- * Brand-first “buy Calm+” composition: CalmIq + offer + CTAs + PricingVestStage.
- * One section — not a Free/Paid card dump. Free stays a quiet secondary CTA.
+ * Brand-first Calm+ buy composition beside the rotatable vest stage.
+ * Desktop: copy at logical start, vest at logical end (RTL-safe grid).
+ * Mobile: offer → vest → features/CTAs so the stage stays in the first scroll.
  */
 export async function PricingBuySection({
   signedIn,
@@ -19,9 +20,9 @@ export async function PricingBuySection({
   const t = await getTranslations("pricing");
 
   return (
-    <section className="relative min-h-[calc(100vh-7.5rem)] overflow-hidden">
+    <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="animate-drift absolute -top-24 end-[-10%] h-[28rem] w-[28rem] rounded-full bg-[color-mix(in_oklab,var(--color-accent-soft)_42%,transparent)] blur-3xl animate-soft-pulse" />
+        <div className="animate-drift absolute -top-24 end-[-10%] h-[28rem] w-[28rem] rounded-full bg-[color-mix(in_oklab,var(--color-vest-accent)_28%,transparent)] blur-3xl animate-soft-pulse" />
         <div className="absolute bottom-[-12%] start-[-16%] h-[22rem] w-[22rem] rounded-full bg-primary/15 blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.2]"
@@ -32,20 +33,9 @@ export async function PricingBuySection({
         />
       </div>
 
-      {/* Dominant rotatable blue-glass vest plane */}
-      <div className="pointer-events-none absolute inset-y-0 end-0 z-0 w-full md:w-[56%] lg:w-[60%]">
-        <div className="pointer-events-auto h-full w-full">
-          <PricingVestStage label={t("vestLabel")} />
-        </div>
-      </div>
-
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 start-0 z-[1] w-full max-w-3xl bg-gradient-to-r from-[var(--color-bg)] from-22% via-[color-mix(in_oklab,var(--color-bg)_68%,transparent)] to-transparent rtl:bg-gradient-to-l md:w-[48%]"
-      />
-
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7.5rem)] max-w-6xl flex-col justify-center px-6 py-16 md:px-10 md:py-20">
-        <div className="pointer-events-none max-w-xl lg:max-w-2xl">
+      <div className="relative mx-auto grid min-h-[calc(100vh-7.5rem)] max-w-6xl items-center gap-6 px-6 py-10 md:grid-cols-2 md:grid-rows-[auto_1fr] md:gap-x-10 md:gap-y-6 md:px-10 md:py-16 lg:gap-x-14 lg:py-20">
+        {/* Offer block — logical start */}
+        <div className="relative z-10 max-w-xl justify-self-start md:col-start-1 md:row-start-1 lg:max-w-2xl">
           <p className="animate-rise font-display text-5xl font-semibold tracking-tight text-primary md:text-7xl">
             {t("brand")}
           </p>
@@ -64,8 +54,16 @@ export async function PricingBuySection({
           </div>
 
           <p className="mt-3 text-sm font-medium text-accent">{t("physioNote")}</p>
+        </div>
 
-          <ul className="mt-8 space-y-2.5 text-base text-text">
+        {/* Vest — end column, spans both rows on desktop; sits after offer on mobile */}
+        <div className="relative h-[min(42vh,22rem)] w-full touch-none pointer-events-auto md:col-start-2 md:row-span-2 md:row-start-1 md:h-[min(70vh,36rem)] lg:h-[min(78vh,40rem)]">
+          <PricingVestStage label={t("vestLabel")} />
+        </div>
+
+        {/* Features + CTAs — continue under offer on desktop; follow vest on mobile */}
+        <div className="relative z-10 max-w-xl justify-self-start md:col-start-1 md:row-start-2 lg:max-w-2xl">
+          <ul className="space-y-2.5 text-base text-text">
             <li className="flex gap-3">
               <span
                 aria-hidden
@@ -89,7 +87,7 @@ export async function PricingBuySection({
             </li>
           </ul>
 
-          <div className="pointer-events-auto mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             {plan === "calm_plus" ? (
               <Link
                 href="/sessions"

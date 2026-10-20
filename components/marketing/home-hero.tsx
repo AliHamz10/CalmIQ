@@ -3,15 +3,15 @@ import { Link } from "@/lib/i18n/navigation";
 import { VestCanvas } from "./vest-canvas";
 
 /**
- * Brand-first home hero: CalmIq + headline + support + CTAs + dominant rotatable 3D vest.
- * Hero budget only — no cards, badges, or secondary marketing.
+ * Brand-first home hero: CalmIq + headline + support + CTAs beside the
+ * rotatable blue glass vest stage. One composition — grid on desktop
+ * (logical start/end for RTL), stacked copy→vest on mobile.
  */
 export async function HomeHero() {
   const t = await getTranslations("home");
 
   return (
-    <section className="relative min-h-[calc(100vh-7.5rem)] overflow-hidden">
-      {/* Atmospheric wash — not the dominant visual */}
+    <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="animate-drift absolute -top-28 end-[-12%] h-[30rem] w-[30rem] rounded-full bg-accent/25 blur-3xl animate-soft-pulse" />
         <div className="absolute bottom-[-10%] start-[-18%] h-[24rem] w-[24rem] rounded-full bg-primary/20 blur-3xl" />
@@ -24,22 +24,9 @@ export async function HomeHero() {
         />
       </div>
 
-      {/* Dominant full-bleed vest plane — pointer events for orbit drag */}
-      <div className="pointer-events-none absolute inset-y-0 end-0 z-0 w-full md:w-[58%] lg:w-[62%]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_55%_45%,var(--color-hero-glow),transparent_62%)]" />
-        <div className="pointer-events-auto h-full w-full opacity-95 md:opacity-100">
-          <VestCanvas label={t("vestLabel")} />
-        </div>
-      </div>
-
-      {/* Readability scrim toward copy (logical start works in RTL) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 start-0 z-[1] w-full max-w-3xl bg-gradient-to-r from-[var(--color-bg)] from-25% via-[color-mix(in_oklab,var(--color-bg)_72%,transparent)] to-transparent rtl:bg-gradient-to-l md:w-[48%]"
-      />
-
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7.5rem)] max-w-6xl flex-col justify-center px-6 py-16 md:px-10">
-        <div className="pointer-events-none max-w-xl lg:max-w-2xl">
+      <div className="relative mx-auto grid min-h-[calc(100vh-7.5rem)] max-w-6xl items-center gap-8 px-6 py-12 md:grid-cols-2 md:gap-10 md:px-10 md:py-16 lg:gap-14">
+        {/* Copy — DOM first = logical start in LTR and RTL */}
+        <div className="relative z-10 max-w-xl justify-self-start lg:max-w-2xl">
           <p className="animate-rise font-display text-5xl font-semibold tracking-tight text-primary md:text-7xl lg:text-8xl">
             {t("brand")}
           </p>
@@ -49,7 +36,7 @@ export async function HomeHero() {
           <p className="animate-rise-delay-2 mt-5 text-lg text-muted md:text-xl">
             {t("support")}
           </p>
-          <div className="animate-rise-delay-2 pointer-events-auto mt-10 flex flex-wrap items-center gap-4">
+          <div className="animate-rise-delay-2 mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/chat"
               className="inline-flex items-center justify-center rounded-[var(--radius)] bg-primary px-6 py-3 text-base font-semibold text-primary-fg transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
@@ -62,6 +49,17 @@ export async function HomeHero() {
             >
               {t("ctaSecondary")}
             </Link>
+          </div>
+        </div>
+
+        {/* Vest stage — orbit hit target; dedicated plane on mobile */}
+        <div className="relative isolate h-[min(52vh,28rem)] w-full touch-none pointer-events-auto md:h-[min(70vh,36rem)] lg:h-[min(78vh,40rem)]">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_55%_45%,var(--color-hero-glow),transparent_62%)]"
+          />
+          <div className="relative h-full w-full">
+            <VestCanvas label={t("vestLabel")} />
           </div>
         </div>
       </div>
