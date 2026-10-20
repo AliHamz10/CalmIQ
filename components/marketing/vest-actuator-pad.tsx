@@ -1,134 +1,63 @@
 "use client";
 
-import { useId } from "react";
+import Image from "next/image";
+import { VEST_PAD_OVERLAY_PATH } from "@/lib/marketing/vest-assets";
 
 type VestActuatorPadProps = {
   selected?: boolean;
+  /**
+   * `photo` — molded pad PNG (shell compositing).
+   * `hit` — clear click target over baked pads; selected ring only (default).
+   */
+  mode?: "photo" | "hit";
   className?: string;
 };
 
 /**
- * Hardware-style red comfort actuator pad — distinct rim, beveled face,
- * center contact, mounting lugs. Not a soft glow blob.
+ * Molded red actuator pad control. Default `hit` mode sits over baked
+ * hardware frames without covering them with flat SVG squares. `photo`
+ * mode uses the image-agent cutout for shell compositing.
  */
 export function VestActuatorPad({
   selected = false,
+  mode = "hit",
   className = "",
 }: VestActuatorPadProps) {
-  const uid = useId().replace(/:/g, "");
-  const face = `padFace-${uid}`;
-  const rim = `padRim-${uid}`;
-  const contact = `padContact-${uid}`;
+  if (mode === "photo") {
+    return (
+      <span
+        aria-hidden
+        className={`relative block h-12 w-12 md:h-14 md:w-14 ${className}`}
+      >
+        <Image
+          src={VEST_PAD_OVERLAY_PATH}
+          alt=""
+          fill
+          sizes="56px"
+          draggable={false}
+          className={`object-contain transition duration-150 ${
+            selected
+              ? "scale-110 drop-shadow-[0_0_0_3px_var(--color-vest-wire-bright)] brightness-110"
+              : "drop-shadow-[0_2px_4px_rgba(11,30,27,0.35)]"
+          }`}
+        />
+      </span>
+    );
+  }
 
   return (
     <span
       aria-hidden
-      className={`relative block h-11 w-11 md:h-12 md:w-12 ${className}`}
+      className={`relative block h-11 w-14 md:h-12 md:w-16 ${className}`}
     >
-      <svg viewBox="0 0 48 48" className="h-full w-full">
-        <defs>
-          <linearGradient id={face} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor={selected ? "#ff5a6e" : "#f02438"} />
-            <stop offset="40%" stopColor={selected ? "#e11d2e" : "#c4122a"} />
-            <stop offset="100%" stopColor="#6e0c18" />
-          </linearGradient>
-          <linearGradient id={rim} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#3a070e" />
-            <stop offset="100%" stopColor="#140206" />
-          </linearGradient>
-          <linearGradient id={contact} x1="20%" y1="15%" x2="80%" y2="90%">
-            <stop offset="0%" stopColor="#ff9aa6" />
-            <stop offset="50%" stopColor="#ff2d4a" />
-            <stop offset="100%" stopColor="#7a0c18" />
-          </linearGradient>
-        </defs>
-
-        {/* Hard outer chassis — squared, not a blob */}
-        <rect
-          x="1.5"
-          y="1.5"
-          width="45"
-          height="45"
-          rx="5"
-          fill={`url(#${rim})`}
-          stroke="#ff2d4a"
-          strokeWidth="1.8"
-        />
-        {/* Beveled plate */}
-        <rect
-          x="5.5"
-          y="5.5"
-          width="37"
-          height="37"
-          rx="3.5"
-          fill={`url(#${face})`}
-          stroke="#ffb0b8"
-          strokeWidth="1.1"
-        />
-        {/* Recessed well */}
-        <rect
-          x="11"
-          y="11"
-          width="26"
-          height="26"
-          rx="2.5"
-          fill="#4a0810"
-          stroke="#2a050a"
-          strokeWidth="1"
-        />
-        {/* Square contact plate (hardware, not soft disc) */}
-        <rect
-          x="16"
-          y="16"
-          width="16"
-          height="16"
-          rx="2"
-          fill={`url(#${contact})`}
-          stroke="#3a070e"
-          strokeWidth="1.1"
-        />
-        <rect x="20" y="20" width="8" height="8" rx="1" fill="#fff5f6" opacity="0.35" />
-
-        {/* Crosshair etch for pad readability */}
-        <line x1="24" y1="17.5" x2="24" y2="30.5" stroke="#5a0a14" strokeWidth="0.7" />
-        <line x1="17.5" y1="24" x2="30.5" y2="24" stroke="#5a0a14" strokeWidth="0.7" />
-
-        {/* Corner screws */}
-        <circle cx="9" cy="9" r="1.7" fill="#1a0508" stroke="#ff6b7d" strokeWidth="0.7" />
-        <circle cx="39" cy="9" r="1.7" fill="#1a0508" stroke="#ff6b7d" strokeWidth="0.7" />
-        <circle cx="9" cy="39" r="1.7" fill="#1a0508" stroke="#ff6b7d" strokeWidth="0.7" />
-        <circle cx="39" cy="39" r="1.7" fill="#1a0508" stroke="#ff6b7d" strokeWidth="0.7" />
-        <line x1="7.8" y1="9" x2="10.2" y2="9" stroke="#ffb0b8" strokeWidth="0.45" />
-        <line x1="9" y1="7.8" x2="9" y2="10.2" stroke="#ffb0b8" strokeWidth="0.45" />
-        <line x1="37.8" y1="9" x2="40.2" y2="9" stroke="#ffb0b8" strokeWidth="0.45" />
-        <line x1="39" y1="7.8" x2="39" y2="10.2" stroke="#ffb0b8" strokeWidth="0.45" />
-
-        {/* Bottom wire crimp terminal */}
-        <rect
-          x="19"
-          y="41.5"
-          width="10"
-          height="4.2"
-          rx="0.7"
-          fill="#1a0508"
-          stroke="#ff2d4a"
-          strokeWidth="0.9"
-        />
-        <rect x="21.5" y="42.5" width="5" height="2" rx="0.3" fill="#e11d2e" />
-
-        {selected ? (
-          <rect
-            x="0.5"
-            y="0.5"
-            width="47"
-            height="47"
-            rx="5.5"
-            fill="none"
-            stroke="#ff2d4a"
-            strokeWidth="2.2"
-          />
-        ) : null}
-      </svg>
+      {/* Invisible hit footprint matching molded rectangular pads */}
+      <span
+        className={`absolute inset-0 rounded-[0.65rem] border-[3px] transition ${
+          selected
+            ? "border-[var(--color-vest-wire-bright)] bg-[color-mix(in_oklab,var(--color-vest-wire)_22%,transparent)] shadow-[0_0_0_2px_rgba(255,45,74,0.35)]"
+            : "border-transparent bg-transparent hover:border-[color-mix(in_oklab,var(--color-vest-wire)_70%,transparent)] hover:bg-[color-mix(in_oklab,var(--color-vest-wire)_12%,transparent)]"
+        }`}
+      />
     </span>
   );
 }

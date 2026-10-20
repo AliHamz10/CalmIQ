@@ -46,13 +46,16 @@ function usePrefersReducedMotion() {
 }
 
 /**
- * Photoreal blue vest cutout — drag/click-rotate through angle frames,
- * red Li-ion wiring, red actuator hotspots with body-zone info (EN+UR).
+ * Photoreal blue vest cutout — drag/click-rotate through baked hardware
+ * frames (molded red pads + Li-ion + red wires in the PNG). Hotspots use
+ * the molded pad overlay image. Optional SVG wiring only when compositing
+ * on shell frames (showWiring).
  */
 export function ImageVest({
   label,
   showHotspots = true,
-  showWiring = true,
+  /** Baked frames already include Li-ion + red leads — off by default. */
+  showWiring = false,
   priority = true,
   className = "",
 }: ImageVestProps) {
@@ -187,10 +190,13 @@ export function ImageVest({
                         e.stopPropagation();
                         setActiveZone((prev) => (prev === spot.id ? null : spot.id));
                       }}
-                      className="absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-[0.55rem] transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-vest-wire)] active:scale-95"
+                      className="absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-full transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-vest-wire)] active:scale-95"
                       style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                     >
-                      <VestActuatorPad selected={selected} />
+                      <VestActuatorPad
+                        selected={selected}
+                        mode={showWiring ? "photo" : "hit"}
+                      />
                     </button>
                   );
                 })

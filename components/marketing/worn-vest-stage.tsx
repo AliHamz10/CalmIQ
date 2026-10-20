@@ -57,7 +57,7 @@ export function WornVestStage({
                   className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-1/2"
                   style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                 >
-                  <VestActuatorPad />
+                  <VestActuatorPad mode="photo" />
                 </span>
               ))}
             </>

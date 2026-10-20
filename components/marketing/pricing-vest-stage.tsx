@@ -67,7 +67,7 @@ export function PricingVestStage({ label }: PricingVestStageProps) {
 
       <div className="relative min-h-0 flex-1 touch-none">
         {view === "product" ? (
-          <ImageVest label={label} showHotspots />
+          <ImageVest label={label} showHotspots showWiring={false} />
         ) : (
           <WornVestStage label={t("wornLabel")} showWiring={false} />
         )}
