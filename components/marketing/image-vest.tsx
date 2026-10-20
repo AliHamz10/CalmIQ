@@ -167,6 +167,8 @@ export function ImageVest({
               alt=""
               fill
               priority={priority}
+              /* unoptimized: avoid stale Next image-optimizer cache serving shell bytes */
+              unoptimized
               sizes="(max-width: 768px) 92vw, 58vw"
               className="animate-rise object-contain drop-shadow-[0_28px_48px_rgba(11,30,27,0.18)]"
               onError={() => setUseCssSpinFallback(true)}

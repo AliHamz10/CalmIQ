@@ -1,16 +1,30 @@
 /**
  * CalmIq image-vest asset contract (see internal/image-vest-sources.md).
  * Image agent drops bg-removed PNGs here; swap files without code changes.
+ *
+ * IMPORTANT: ImageVest MUST rotate through baked HARDWARE frames
+ * (red molded pads + red wires + Li-ion), never shell-only cyan quilts.
  */
 
-/** Baked hardware frames — blue shell + Li-ion + red wires + molded red pads. */
+/**
+ * Baked hardware rotate frames — blue shell WITH Li-ion + red wires +
+ * molded red actuator pads. Filenames use `vest-hardware-*` so CDN/Next
+ * image caches cannot serve stale shell-only bytes under `vest-front.png`.
+ */
 export const VEST_FRAME_PATHS = [
+  "/images/vest-hardware-front.png",
+  "/images/vest-hardware-three-quarter.png",
+  "/images/vest-hardware-side.png",
+] as const;
+
+/** Canonical short aliases (same pixels as hardware frames). */
+export const VEST_FRAME_ALIASES = [
   "/images/vest-front.png",
   "/images/vest-three-quarter.png",
   "/images/vest-side.png",
 ] as const;
 
-/** Shell-only frames (no battery/wires/pads) for optional compositing. */
+/** Shell-only frames (no battery/wires/pads) — compositing only, not hero. */
 export const VEST_SHELL_FRAME_PATHS = [
   "/images/comfort-vest-blue-shell-front.png",
   "/images/comfort-vest-blue-shell-threequarter.png",
