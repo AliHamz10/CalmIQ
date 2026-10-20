@@ -14,13 +14,16 @@ type VestCanvasProps = {
 
 /**
  * Client-only mount + lazy R3F import.
- * SVG silhouette stays visible until WebGL scene is ready (or permanently if WebGL missing).
+ * SVG silhouette for no-WebGL / prefers-reduced-motion; interactive 3D otherwise.
  */
 export function VestCanvas({ label }: VestCanvasProps) {
   const [Scene, setScene] = useState<ComponentType<VestSceneProps> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
 
     const probe = document.createElement("canvas");
     const hasWebGl = !!(

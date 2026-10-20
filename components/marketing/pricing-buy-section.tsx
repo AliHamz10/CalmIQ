@@ -32,9 +32,11 @@ export async function PricingBuySection({
         />
       </div>
 
-      {/* Dominant white comfort-vest product plane */}
+      {/* Dominant rotatable blue-glass vest plane */}
       <div className="pointer-events-none absolute inset-y-0 end-0 z-0 w-full md:w-[56%] lg:w-[60%]">
-        <PricingVestStage label={t("vestLabel")} />
+        <div className="pointer-events-auto h-full w-full">
+          <PricingVestStage label={t("vestLabel")} />
+        </div>
       </div>
 
       <div
@@ -43,7 +45,7 @@ export async function PricingBuySection({
       />
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7.5rem)] max-w-6xl flex-col justify-center px-6 py-16 md:px-10 md:py-20">
-        <div className="max-w-xl lg:max-w-2xl">
+        <div className="pointer-events-none max-w-xl lg:max-w-2xl">
           <p className="animate-rise font-display text-5xl font-semibold tracking-tight text-primary md:text-7xl">
             {t("brand")}
           </p>
@@ -87,7 +89,7 @@ export async function PricingBuySection({
             </li>
           </ul>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="pointer-events-auto mt-10 flex flex-wrap items-center gap-4">
             {plan === "calm_plus" ? (
               <Link
                 href="/sessions"

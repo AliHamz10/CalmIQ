@@ -6,8 +6,9 @@ type VestProductPhotoProps = {
 };
 
 /**
- * Dominant product photography for marketing surfaces.
- * Full-bleed comfort-vest shot — not a card; no trademarks in alt text.
+ * Optional static product photo asset (kept in public/images/).
+ * Not the primary marketing visual — VestCanvas (R3F + SVG) owns home/pricing.
+ * No trademarks in alt text.
  */
 export function VestProductPhoto({
   label,
