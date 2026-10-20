@@ -9,9 +9,9 @@ type PricingBuySectionProps = {
 };
 
 /**
- * Brand-first Calm+ buy composition beside the photoreal person-in-vest stage.
- * Desktop: copy at logical start, vest at logical end (RTL-safe grid).
- * Mobile: offer → vest → features/CTAs so the stage stays in the first scroll.
+ * Brand-first Calm+ buy composition beside the image vest stage
+ * (worn person by default + product rotate with red wiring). Desktop:
+ * copy at logical start, vest at logical end (RTL-safe grid).
  */
 export async function PricingBuySection({
   signedIn,

@@ -1,10 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
-import { VestCanvas } from "./vest-canvas";
+import { ImageVest } from "./image-vest";
 
 /**
  * Brand-first home hero: CalmIq + headline + support + CTAs beside the
- * rotatable blue glass vest stage. One composition — grid on desktop
+ * interactive blue image vest. One composition — grid on desktop
  * (logical start/end for RTL), stacked copy→vest on mobile.
  */
 export async function HomeHero() {
@@ -53,15 +53,9 @@ export async function HomeHero() {
           </div>
         </div>
 
-        {/* Vest stage — orbit hit target; dedicated plane on mobile */}
+        {/* Image vest — drag-rotate + actuator hotspots */}
         <div className="relative isolate h-[min(52vh,28rem)] w-full touch-none pointer-events-auto md:h-[min(70vh,36rem)] lg:h-[min(78vh,40rem)]">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_55%_45%,var(--color-hero-glow),transparent_62%)]"
-          />
-          <div className="relative h-full w-full">
-            <VestCanvas label={t("vestLabel")} />
-          </div>
+          <ImageVest label={t("vestLabel")} showHotspots />
         </div>
       </div>
     </section>

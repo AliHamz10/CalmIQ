@@ -29,7 +29,7 @@
     "comfortTitle": "Recovery comfort ideas",
     "comfortSupport": "Gentle self-massage, optional comfort tools, and clear paths to human care — free educational guides.",
     "comfortCta": "Browse comfort",
-    "vestLabel": "CalmIq comfort vest — blue glass 3D preview, drag to rotate",
+    "vestLabel": "CalmIq comfort vest — drag to rotate, red actuators show body zones",
     "physiosIndependent": "Independent clinics — not CalmIq staff",
     "physiosTitle": "Physiotherapists to call in {city}",
     "physiosSupport": "Public local clinics you can phone for hands-on care. They are independent practices, not part of the CalmIq team.",
@@ -59,7 +59,7 @@
     "ctaFree": "Continue free",
     "ctaPaid": "Upgrade to Calm+",
     "physioNote": "Physiotherapist sessions are the Calm+ premium — included on Calm+ only.",
-    "vestLabel": "Person wearing CalmIq translucent blue comfort vest with visible actuators"
+    "vestLabel": "CalmIq comfort vest — drag to rotate, red actuators show body zones"
   },
   "about": {
     "title": "Built for health stress and everyday calm",
@@ -375,5 +375,35 @@
     "privacyBody": "CalmIq stores account, subscription, and session-request data to deliver the product. Chat may be processed by our AI provider. Do not share sensitive medical identifiers you are not comfortable storing.",
     "termsTitle": "Terms",
     "termsBody": "CalmIq chat is educational stress and wellbeing guidance, not diagnosis or emergency care. Physiotherapist sessions are fulfilled by humans after a paid Calm+ request. Use of the service constitutes acceptance of these terms."
+  },
+  "vest": {
+    "rotateHint": "Drag or click to rotate · tap a red actuator for zone info",
+    "closeInfo": "Close",
+    "viewToggleLabel": "Vest view",
+    "viewProduct": "Product",
+    "viewWorn": "Worn",
+    "wornLabel": "Person wearing CalmIq blue comfort vest with red actuators and Li-ion wiring",
+    "zones": {
+      "traps": {
+        "name": "Upper traps",
+        "body": "Gentle actuator comfort along the upper trapezius — eases stress-held neck and shoulder tension."
+      },
+      "shoulders": {
+        "name": "Shoulders",
+        "body": "Pads over the deltoid and shoulder girdle for soft pressure when desk stress tightens the top of the arms."
+      },
+      "chest": {
+        "name": "Chest & ribs",
+        "body": "Front panels cue easier breathing space across the chest wall — comfort only, not clinical treatment."
+      },
+      "midBack": {
+        "name": "Mid-back",
+        "body": "Thoracic-zone actuators for the area between the shoulder blades where posture stress often gathers."
+      },
+      "lowerBack": {
+        "name": "Lower back",
+        "body": "Lower lumbar band for light, even comfort pressure after long sitting — wellness support, not physio."
+      }
+    }
   }
 }

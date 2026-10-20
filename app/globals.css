@@ -20,6 +20,9 @@
   --color-vest-fabric: #0d9dff;
   --color-vest-accent: #2cf0ff;
   --color-vest-pad: #9af8ff;
+  /* Red actuators + wiring — high contrast on blue vest */
+  --color-vest-wire: #e11d2e;
+  --color-vest-wire-bright: #ff2d4a;
   --shadow-soft: 0 20px 52px rgba(11, 30, 27, 0.07);
   --radius: 0.35rem;
 }
@@ -40,6 +43,8 @@
   --color-vest-fabric: var(--color-vest-fabric);
   --color-vest-accent: var(--color-vest-accent);
   --color-vest-pad: var(--color-vest-pad);
+  --color-vest-wire: var(--color-vest-wire);
+  --color-vest-wire-bright: var(--color-vest-wire-bright);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
