@@ -15,7 +15,8 @@ type WornVestStageProps = {
  * Buy-page “person wearing vest” stage.
  *
  * IMAGE AGENT HOOK — replace `public/images/vest-worn.png`. Prefer assets
- * that already include red hardware pads/wiring; otherwise overlays draw them.
+ * with defined red hardware pads + red wires to Li-ion (clear edges, not
+ * soft glow). Set showWiring when the file lacks baked power hardware.
  */
 export function WornVestStage({
   label,

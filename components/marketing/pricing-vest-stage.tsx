@@ -13,8 +13,9 @@ type VestView = "product" | "worn";
 
 /**
  * Packages / Calm+ buy stage: person-wearing-vest by default + product
- * image vest (rotate, red actuators/wiring). Image agent may replace
- * `public/images/vest-worn.png` / WornVestStage assets.
+ * image vest (rotate, red actuators/wiring). Worn view uses vest-worn.png
+ * with baked defined red hardware pads + red wires to Li-ion (no soft
+ * SVG overlays). Image agent may replace that asset in place.
  */
 export function PricingVestStage({ label }: PricingVestStageProps) {
   const t = useTranslations("vest");
@@ -68,7 +69,7 @@ export function PricingVestStage({ label }: PricingVestStageProps) {
         {view === "product" ? (
           <ImageVest label={label} showHotspots />
         ) : (
-          <WornVestStage label={t("wornLabel")} showWiring />
+          <WornVestStage label={t("wornLabel")} showWiring={false} />
         )}
       </div>
     </div>
