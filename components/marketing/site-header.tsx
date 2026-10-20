@@ -10,6 +10,7 @@ const links = [
   { href: "/pricing", key: "pricing" as const },
   { href: "/about", key: "about" as const },
   { href: "/routines", key: "routines" as const },
+  { href: "/comfort", key: "comfort" as const },
   { href: "/chat", key: "chat" as const },
   { href: "/sessions", key: "sessions" as const },
   { href: "/account", key: "account" as const },
