@@ -176,20 +176,20 @@ export function RoutinePlayer({ routine }: Props) {
           })}
         >
           <div
-            className="h-full rounded-full bg-accent transition-[width] duration-500 ease-out motion-reduce:transition-none"
+            className="h-full rounded-full bg-accent transition-[inline-size] duration-500 ease-out motion-reduce:transition-none"
             style={{
-              width: `${(progressValue / totalSteps) * 100}%`,
+              inlineSize: `${(progressValue / totalSteps) * 100}%`,
             }}
           />
         </div>
-        <ol className="flex flex-wrap gap-1.5" aria-hidden>
+        <ol className="flex gap-1.5" aria-hidden>
           {steps.map((item, index) => {
             const complete = finished || index < stepIndex;
             const current = !finished && index === stepIndex;
             return (
               <li
                 key={item.id}
-                className={`h-1.5 flex-1 min-w-6 rounded-full transition-colors duration-300 ${
+                className={`h-1.5 min-w-0 flex-1 rounded-full transition-colors duration-300 ${
                   complete
                     ? "bg-accent"
                     : current
