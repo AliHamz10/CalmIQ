@@ -68,7 +68,7 @@ export function RoutineStepView({
           aria-live="polite"
         >
           {timerComplete
-            ? t("timerSeconds", { seconds: 0 })
+            ? t("stepReady")
             : t("timerSeconds", { seconds: remainingSec })}
         </p>
       ) : null}

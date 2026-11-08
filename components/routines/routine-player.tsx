@@ -72,6 +72,23 @@ export function RoutinePlayer({ routine }: Props) {
     return () => window.clearInterval(id);
   }, [durationSec, finished, stepIndex, timerComplete]);
 
+  // Previously timed steps froze on "0s" with no advance — continue automatically.
+  useEffect(() => {
+    if (!timerComplete || finished) return;
+
+    const id = window.setTimeout(() => {
+      setStepIndex((current) => {
+        if (current >= totalSteps - 1) {
+          setFinished(true);
+          return current;
+        }
+        return current + 1;
+      });
+    }, 900);
+
+    return () => window.clearTimeout(id);
+  }, [timerComplete, finished, stepIndex, totalSteps]);
+
   const progressValue = finished ? totalSteps : stepIndex + 1;
 
   function goBack() {
@@ -91,6 +108,13 @@ export function RoutinePlayer({ routine }: Props) {
     }
     setStepIndex((i) => i + 1);
   }
+
+  const primaryLabel =
+    stepIndex >= totalSteps - 1
+      ? t("finish")
+      : timerComplete
+        ? t("continue")
+        : t("next");
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12 md:px-10 md:py-16">
@@ -162,9 +186,11 @@ export function RoutinePlayer({ routine }: Props) {
           <button
             type="button"
             onClick={goNext}
-            className="inline-flex min-h-12 min-w-[7rem] items-center justify-center rounded-[var(--radius)] bg-primary px-5 text-base font-semibold text-primary-fg transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            className={`inline-flex min-h-12 min-w-[7rem] items-center justify-center rounded-[var(--radius)] bg-primary px-5 text-base font-semibold text-primary-fg transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+              timerComplete && !reducedMotion ? "animate-rise" : ""
+            }`}
           >
-            {stepIndex >= totalSteps - 1 ? t("finish") : t("next")}
+            {primaryLabel}
           </button>
         ) : (
           <Link

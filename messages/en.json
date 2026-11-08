@@ -209,6 +209,8 @@
     "support": "Short guided flows for everyday stress — wellness support, not medical care.",
     "durationMinutes": "{minutes} min",
     "open": "Start",
+    "continue": "Continue",
+    "stepReady": "Continue when ready",
     "backToList": "All routines",
     "next": "Next",
     "back": "Back",
