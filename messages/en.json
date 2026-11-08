@@ -211,6 +211,7 @@
     "open": "Start",
     "continue": "Continue",
     "stepReady": "Continue when ready",
+    "autoAdvanceHint": "Moving on automatically — or tap Continue now.",
     "backToList": "All routines",
     "next": "Next",
     "back": "Back",
@@ -220,9 +221,18 @@
     "inhale": "Inhale",
     "hold": "Hold",
     "exhale": "Exhale",
+    "kinds": {
+      "intro": "Begin",
+      "breath": "Breath",
+      "action": "Move",
+      "pause": "Pause",
+      "outro": "Close"
+    },
     "chatCta": "Talk about this with CalmIq",
-    "doneTitle": "You’re done",
-    "doneBody": "Take what felt useful. You can repeat this anytime, or chat if you want to unpack how you feel.",
+    "browseCta": "Try another routine",
+    "doneEyebrow": "Complete",
+    "doneTitle": "Nice work — you’re done",
+    "doneBody": "Keep whatever felt useful. Repeat anytime, browse another short reset, or talk it through with CalmIq.",
     "disclaimer": "These routines are general wellbeing tools for stress and comfort. They are not medical treatment, diagnosis, or a substitute for professional care. Stop if anything feels wrong, and seek urgent help for severe or sudden symptoms. Physiotherapist sessions stay on Calm+ separately.",
     "items": {
       "breathing": {
